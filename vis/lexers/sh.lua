@@ -1,0 +1,1 @@
+/usr/local/share/vis/lexers/bash.lua
