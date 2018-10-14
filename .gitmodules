@@ -1,3 +1,6 @@
 [submodule "tmux/plugins/tmux-better-mouse-mode"]
 	path = tmux/plugins/tmux-better-mouse-mode
 	url = git@github.com:NHDaly/tmux-better-mouse-mode.git
+[submodule "vis/plugins/vis-filetype-settings"]
+	path = vis/plugins/vis-filetype-settings
+	url = git@github.com:jocap/vis-filetype-settings.git
