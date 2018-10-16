@@ -3,7 +3,8 @@ require("plugins/vis-modelines")
 require("plugins/vis-filetype-settings")
 	
 settings = {
-	markdown = {"set tw 4", "set et on"}
+	markdown = {"set tw 4", "set et on"},
+	ruby = {"set tw 2", "set et on"},
 }
 
 vis.events.subscribe(vis.events.INIT, function()
@@ -18,7 +19,6 @@ end)
 
 vis.events.subscribe(vis.events.WIN_OPEN, function(win)
 	vis:command("set savemethod inplace")
-	vis:command("set relative")
 end)
 
 vis.ftdetect.filetypes.bash.mime = {
