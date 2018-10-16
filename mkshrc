@@ -1,13 +1,12 @@
 # vi: ft=sh
 
-PS1='${PWD} $ '
 HISTFILE=~/.mksh_history
 HISTSIZE=5000
 
-export EDITOR=vise
-export FCEDIT=$EDITOR
-export PAGER=less
-export BROWSER=seamonkey
+PS1='${PWD} $ '
+PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
+
+stty dsusp undef # i use ^Z instead of ^Y
 
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11R6/bin:/usr/local/bin:/usr/local/sbin:/usr/games
 PATH=$HOME/bin:$PATH
@@ -15,31 +14,20 @@ PATH=$HOME/.fzf/bin:$PATH
 PATH=$HOME/.node_modules/bin:$PATH
 export PATH
 
+export EDITOR=vise
+export FCEDIT=$EDITOR
+export PAGER=less
+export BROWSER=seamonkey
+
 alias ls='colorls -G'
 alias tree='colortree -C'
 bind ^L=clear-screen
 bind -m ^[l='ls^J'
 bind -m ^[^L='^Uls^J^Y'
 
-# tmux:
+# extra
 
-PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
-
-# fzf:
-
-export FZF_DEFAULT_COMMAND='ag --nocolor -g "" 2>/dev/null'
-export FZF_DIR_COMMAND='find $PWD -type d 2>/dev/null'
-export FZF_IGNORE='-E "/\.cache\/|/\.git|/\.npm|/\.cpan"'
-
-bind -m ^T='^[b^[f ^[ echo $(eval "$FZF_DEFAULT_COMMAND" | grep -v $FZF_IGNORE | fzf-tmux -m --reverse --height 40%)^[^E'
-bind -m ^[c='^Ucd ^[ echo $(eval "$FZF_DIR_COMMAND" | grep -v $FZF_IGNORE | fzf-tmux --reverse --height 40%)^[^E^J'
-bind -m ^[^T='^[b^[f ^[ echo $(eval "$FZF_DEFAULT_COMMAND" | grep -v $FZF_IGNORE | fzf-tmux -m --reverse --height 40% | xargs -L1 readlink -f 2>/dev/null)^[^E'
-bind -m ^[^R=" ^Aecho \$(fc -nl 0 | trim | fzf-tmux +s --tac --height 40% -q '^E')^[^E^J"
-# ^ warning: beware of single quotes and mksh magic!
-
-###
-
-stty dsusp undef # i use ^Z instead of ^Y
-set -o emacs
-
+. ~/config/sh/fzf.sh
 . ~/config/sh/psub.sh
+
+set -o emacs
