@@ -2,8 +2,10 @@
 
 # login shell
 
-if [ -x /usr/bin/ssh-agent -a -z "${SSH_AGENT_PID}" ]; then
+if [ -x /usr/bin/ssh-agent -a -z "$SSH_AGENT_PID" ]; then
 	eval $(ssh-agent -s)
 fi
+
+trap '[ "$SSH_AGENT_PID" ] && kill -9 "$SSH_AGENT_PID"' EXIT
 
 echo $KSH_VERSION | grep 'PD KSH' && export ENV="$HOME/.kshrc"
