@@ -3,7 +3,7 @@
 HISTFILE=~/.mksh_history
 HISTSIZE=5000
 
-PS1='${PWD} $ '
+PS1='$(pwd | sed "s $HOME ~ ") $ '
 PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 
 stty dsusp undef # i use ^Z instead of ^Y
