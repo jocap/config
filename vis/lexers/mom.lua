@@ -31,6 +31,7 @@ local line_comment = token('comment',
 	* l.nonnewline^0)
 
 -- Text
+local text_comment = token('comment', P('\\#') * l.nonnewline^0)
 local inline_escape = token('escape', P('\\') * P(1))
 local inline_escape_bracketed =
 	inline_escape * token('escape_argument', enclosed('[', ']'))
@@ -44,6 +45,7 @@ M._rules = {
 	{'whitespace', ws},
 	{'line_comment', line_comment},
 	{'preprocessor', preprocessor},
+	{'text_comment', text_comment},
 	{'inline_escape_bracketed', inline_escape_bracketed},
 	{'inline_escape_quoted', inline_escape_quoted},
 	{'inline_escape', inline_escape},
