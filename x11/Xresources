@@ -1,0 +1,15 @@
+! xrdb -load ~/.Xresources
+
+URxvt.scrollBar: false
+URxvt.font: xft:DejaVu Sans Mono:size=9
+URxvt.letterSpace: -1
+
+!URxvt.background: #FFFFEB
+URxvt.background: #FFFFFF
+URxvt.foreground: #2D2D2D
+
+URxvt.color4: #1062CD
+URxvt.color7: #CFCFCF
+URxvt.color10: #56F056
+URxvt.color11: #EDD333
+URxvt.color12: #009DFF
