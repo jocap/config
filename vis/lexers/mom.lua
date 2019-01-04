@@ -21,18 +21,20 @@ end
 local ws = token(l.WHITESPACE, l.space^1)
 
 -- Preprocessor
-local command = token('command', l.starts_line('.') * non('\\"')^0)
-local heading = token('heading', l.starts_line('.') * P('HEADING') * non('\\"')^0)
-local comment = token('comment', P('\\"') * l.nonnewline^0)
+local arguments = (l.nonnewline_esc - P'\\"')^0
+local command = token('command', l.starts_line('.') * arguments)
+local heading = token('heading', l.starts_line('.') * P'HEADING ' * arguments)
+local comment = token('comment', P'\\"' * l.nonnewline^0)
 local preprocessor = (heading + command) * comment^-1
+
 local line_comment = token('comment',
 	l.starts_line('.')
-	* (P('\\"') + P('\\#'))
+	* (P'\\"' + P'\\#')
 	* l.nonnewline^0)
 
 -- Text
-local text_comment = token('comment', P('\\#') * l.nonnewline^0)
-local inline_escape = token('escape', P('\\') * P(1))
+local text_comment = token('comment', P'\\#' * l.nonnewline^0)
+local inline_escape = token('escape', P'\\' * P(1))
 local inline_escape_bracketed =
 	inline_escape * token('escape_argument', enclosed('[', ']'))
 local inline_escape_quoted =
