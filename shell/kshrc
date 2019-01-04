@@ -16,7 +16,7 @@ PS1='${PWD} $ '
 export EDITOR=vise
 export FCEDIT=$EDITOR
 export PAGER=less
-export BROWSER=seamonkey
+export BROWSER=firefox
 
 export FZF_DEFAULT_COMMAND='ag --nocolor -g ""'
 export FZF_DEFAULT_OPTS='--color=light,fg:00'

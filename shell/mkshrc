@@ -3,8 +3,19 @@
 HISTFILE=~/.mksh_history
 HISTSIZE=5000
 
-PS1='$(pwd | sed "s $HOME ~ ") $ '
-PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
+PS1=$'\1\r' # make \1 into visibility marker
+PS1=$PS1$'\1\e]2;$PWD\a\1' # set title to pwd
+PS1=$PS1$'\1\e[38;5;244m\1' # light gray
+PS1=$PS1$'${PWD/\\/home\\/john/\\~}' # pwd
+PS1=$PS1$'\1\e[0;0m\1' # reset
+PS1=$PS1' $ '
+PS1=$PS1'$(on_prompt)'
+
+function on_prompt {
+	status=$?
+	# set_dir_env "$PWD"
+	return $status # restore $?
+}
 
 stty dsusp undef # i use ^Z instead of ^Y
 
@@ -17,17 +28,22 @@ export PATH
 export EDITOR=vise
 export FCEDIT=$EDITOR
 export PAGER=less
-export BROWSER=seamonkey
+export BROWSER=chrome
+export NNN_USE_EDITOR=1
 
 alias ls='colorls -G'
 alias tree='colortree -C'
+
+D=~/dev
+C=~/dev/config
+T=~/Documents/troff
+
 bind ^L=clear-screen
 bind -m ^[l='ls^J'
 bind -m ^[^L='^Uls^J^Y'
 
 # extra
 
-. ~/config/sh/fzf.sh
-. ~/config/sh/psub.sh
+. $C/shell/dir_env.sh
 
 set -o emacs
