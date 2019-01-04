@@ -13,7 +13,6 @@ PS1=$PS1'$(on_prompt)'
 
 function on_prompt {
 	status=$?
-	# set_dir_env "$PWD"
 	return $status # restore $?
 }
 
@@ -44,6 +43,5 @@ bind -m ^[^L='^Uls^J^Y'
 
 # extra
 
-. $C/shell/dir_env.sh
 
 set -o emacs
