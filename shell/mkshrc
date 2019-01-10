@@ -55,6 +55,9 @@ bind ^L=clear-screen
 bind -m ^[l='ls^J'
 bind -m ^[^L='^Uls^J^Y'
 
+bind -m ^[r='^U^Arepl '
+bind -m ^[R='^U^P^Arepl ^[f^K^J'
+
 # extra
 
 
