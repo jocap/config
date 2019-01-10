@@ -60,5 +60,6 @@ bind -m ^[R='^U^P^Arepl ^[f^K^J'
 
 # extra
 
+. $C/shell/extra/fzf.sh
 
 set -o emacs # has to come last?
