@@ -1,22 +1,32 @@
 # vi: ft=sh
 
+# basic
+
 HISTFILE=~/.mksh_history
 HISTSIZE=5000
 
+stty dsusp undef # i use ^Z instead of ^Y
+
 PS1=$'\1\r' # make \1 into visibility marker
 PS1=$PS1$'\1\e]2;$PWD\a\1' # set title to pwd
-PS1=$PS1$'\1\e[38;5;244m\1' # light gray
+PS1=$PS1$'\1\e[38;5;250m\1' # light gray
+PS1=$PS1$'${ORIGIN:+[$ORIGIN] }' # if shell came from ranger/nnn
+PS1=$PS1$'\1\e[38;5;244m\1' # gray
 PS1=$PS1$'${PWD/\\/home\\/john/\\~}' # pwd
 PS1=$PS1$'\1\e[0;0m\1' # reset
 PS1=$PS1' $ '
-PS1=$PS1'$(on_prompt)'
+PS1=$PS1'$(kill -SIGUSR1 $$)' # run `on_prompt`
+# (runs after prompt but before command output)
+
+trap on_prompt USR1
 
 function on_prompt {
-	status=$?
-	return $status # restore $?
+	# do stuff
 }
 
-stty dsusp undef # i use ^Z instead of ^Y
+kill -SIGUSR1 $$ # make sure `on_prompt` runs before first prompt
+
+# preferences
 
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11R6/bin:/usr/local/bin:/usr/local/sbin:/usr/games
 PATH=$HOME/bin:$PATH
@@ -30,12 +40,16 @@ export PAGER=less
 export BROWSER=chrome
 export NNN_USE_EDITOR=1
 
-alias ls='colorls -G'
-alias tree='colortree -C'
+# shortcuts
 
 D=~/dev
 C=~/dev/config
 T=~/Documents/troff
+
+alias ls='colorls -G'
+alias tree='colortree -C'
+alias ranger='ORIGIN=ranger ranger'
+alias nnn='ORIGIN=nnn nnn'
 
 bind ^L=clear-screen
 bind -m ^[l='ls^J'
@@ -44,4 +58,4 @@ bind -m ^[^L='^Uls^J^Y'
 # extra
 
 
-set -o emacs
+set -o emacs # has to come last?
