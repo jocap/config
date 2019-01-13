@@ -1,0 +1,2 @@
+all:
+	xrdb -load Xresources
