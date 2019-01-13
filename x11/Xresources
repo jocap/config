@@ -1,11 +1,12 @@
 ! xrdb -load ~/.Xresources
 
-URxvt.scrollBar: false
 URxvt.font: xft:DejaVu Sans Mono:size=9
 URxvt.letterSpace: -1
 URxvt.internalBorder: 16
-URxvt.perl-ext-common: default
+URxvt.scrollBar: false
+URxvt.pointerBlank: true
 URxvt.cutchars: \\ `"'&()*,;<=>?@[]^{|}│
+URxvt.perl-ext-common: default
 
 ! Atom colors
 
