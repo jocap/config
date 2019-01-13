@@ -14,7 +14,6 @@
 #
 # This file must be executable.
 #
-xset m 10/10 1
 xrdb -load /home/john/.Xresources
 
 compton -cG -o 0.25 \
