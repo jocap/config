@@ -3,13 +3,33 @@
 URxvt.scrollBar: false
 URxvt.font: xft:DejaVu Sans Mono:size=9
 URxvt.letterSpace: -1
+URxvt.internalBorder: 16
+URxvt.perl-ext-common: default
+URxvt.cutchars: \\ `"'&()*,;<=>?@[]^{|}│
+
+! Atom colors
 
 !URxvt.background: #FFFFEB
-URxvt.background: #FFFFFF
-URxvt.foreground: #2D2D2D
+!URxvt.background: #FFFFFF
+!URxvt.foreground: #2D2D2D
 
-URxvt.color4: #1062CD
+!URxvt.color4: #1062CD
+!URxvt.color7: #CFCFCF
+!URxvt.color10: #56F056
+!URxvt.color11: #EDD333
+!URxvt.color12: #009DFF
+
+! Dark colors
+
+URxvt.background: #1C1C1C
+URxvt.foreground: #FFFFFF
+
+! blue:
+URxvt.color4: #71A2BE
+URxvt.color12: #7AD0FF
+! gray:
 URxvt.color7: #CFCFCF
+! green:
 URxvt.color10: #56F056
+! yellow:
 URxvt.color11: #EDD333
-URxvt.color12: #009DFF
