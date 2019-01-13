@@ -7,13 +7,14 @@ HISTSIZE=5000
 
 stty dsusp undef # i use ^Z instead of ^Y
 
-PS1=$'\1\r' # make \1 into visibility marker
-PS1=$PS1$'\1\e]2;$PWD\a\1' # set title to pwd
-PS1=$PS1$'\1\e[38;5;250m\1' # light gray
+PS1=$'\1\r' # make \1 into "visibility" marker
+PS1=$PS1$'\1' # make everything "invisible" to line length counter
+PS1=$PS1$'\e]2;$PWD\a' # set title to pwd
+PS1=$PS1$'\e[38;5;250m' # light gray
 PS1=$PS1$'${ORIGIN:+[$ORIGIN] }' # if shell came from ranger/nnn
-PS1=$PS1$'\1\e[38;5;244m\1' # gray
+PS1=$PS1$'\e[38;5;244m' # gray
 PS1=$PS1$'${PWD/\\/home\\/john/\\~}' # pwd
-PS1=$PS1$'\1\e[0;0m\1' # reset
+PS1=$PS1$'\e[0;0m' # reset
 PS1=$PS1' $ '
 PS1=$PS1'$(kill -SIGUSR1 $$)' # run `on_prompt`
 # (runs after prompt but before command output)
