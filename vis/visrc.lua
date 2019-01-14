@@ -33,6 +33,14 @@ vis.events.subscribe(vis.events.WIN_OPEN, function(win)
 	vis:command("set savemethod inplace")
 end)
 
+vis:command_register("eval", function(argv, force, win, selection, range)
+	range = selection.range
+	content = vis.win.file:content(range)
+	local f = io.popen(content)
+	data = f:read("*all")
+	vis:info(data)
+end)
+
 vis.ftdetect.filetypes.bash.mime = {
 	"text/x-shellscript", "application/x-shellscript"
 }
