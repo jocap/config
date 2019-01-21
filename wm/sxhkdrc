@@ -105,9 +105,9 @@ super + ctrl + {m,x,y,z}
 super + x
 	bspc node -g hidden
 
-# unhide nodes
+# unhide all nodes
 super + shift + x
-	bspc node $(bspc query -N -n .hidden | tail -n1) -g hidden=off
+	for i in $(bspc query -N -n .hidden); do bspc node $i -g hidden=off; done
 
 #
 # focus/swap
