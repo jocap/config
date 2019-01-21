@@ -76,6 +76,14 @@ super + y
 super + g
 	bspc node -s biggest.local
 
+# insert recepticle
+super + r
+	bspc node -i
+
+# remove all recepticles
+super + shift + r
+	for i in $(bspc query -N -n .leaf.!window.local); do bspc node $i -k; done
+
 # circulate
 
 super + c
