@@ -3,6 +3,10 @@
 xset fp+ /usr/local/share/fonts/mscorefonts
 xset fp+ /usr/local/share/fonts/ghostscript
 xset fp+ /usr/local/share/fonts/terminus
+xset fp+ /usr/local/share/fonts/leggie
+xset fp+ /home/john/dev/fonts/tewi-font/out
+xset fp+ /home/john/dev/fonts/luculent
+xset fp+ /home/john/dev/fonts/tamsyn-font
 
 export LC_CTYPE=en_US.UTF-8
 

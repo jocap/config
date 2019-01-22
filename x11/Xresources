@@ -1,12 +1,22 @@
 ! xrdb -load ~/.Xresources
 
-URxvt.font: xft:DejaVu Sans Mono:size=9
-URxvt.letterSpace: -1
-URxvt.internalBorder: 16
+URxvt.font: -*-tamsyn-medium-*-normal--14-*-*-*-*-iso8859-1
+URxvt.boldFont: -*-tamsyn-bold-*-normal--14-*-*-*-*-iso8859-1
+
+URxvt.internalBorder: 20
 URxvt.scrollBar: false
 URxvt.pointerBlank: true
 URxvt.cutchars: \\ `"'&()*,;<=>?@[]^{|}│
-URxvt.perl-ext-common: default
+URxvt.perl-ext-common: default,resize-font
+
+URxvt.resize-font.step: 1
+URxvt.keysym.C-minus:     resize-font:smaller
+URxvt.keysym.C-equal:     resize-font:bigger
+URxvt.keysym.C-0:         resize-font:reset
+URxvt.keysym.C-question:  resize-font:show
+
+URxvt.iso14755: false
+URxvt.iso14755_52: false
 
 ! Atom colors
 
