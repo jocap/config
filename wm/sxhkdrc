@@ -72,6 +72,10 @@ super + z
 super + y
 	bspc node -n newest.!automatic.local
 
+# send the newest marked node to the newest preselected node (with pointer)
+super + button2
+	bspc node -n newest.!automatic.local
+
 # swap the current node and the biggest node
 super + g
 	bspc node -s biggest.local
@@ -83,11 +87,6 @@ super + r
 # remove all recepticles
 super + shift + r
 	for i in $(bspc query -N -n .leaf.!window.local); do bspc node $i -k; done
-
-# circulate
-
-super + c
-	bspc desktop -C forward
 
 #
 # state/flags
@@ -153,6 +152,10 @@ super + {_,shift + }{1-9,0}
 
 # preselect the direction
 super + ctrl + {h,j,k,l}
+	bspc node -p {west,south,north,east}
+
+# preselect the direction (with pointer)
+super + {button8,button5,button4,button9}
 	bspc node -p {west,south,north,east}
 
 # preselect the ratio
