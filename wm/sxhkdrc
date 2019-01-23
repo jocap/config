@@ -194,3 +194,14 @@ super + alt + shift + {h,j,k,l}
 # move a floating window
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+#
+# config
+#
+
+# open next node with spiral insertion scheme
+super + s
+	bspc config automatic_scheme spiral && \
+	bspc subscribe node_add | while read; do \
+		bspc config automatic_scheme longest_side && break; \
+	done
