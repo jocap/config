@@ -1,5 +1,12 @@
 # vi: ft=sh
 
+if [ "$LAUNCHER" = true ]; then
+	PS1="> "
+	bind -m ^M="^E &^Jexit^J"
+	bind -m ^C="^Uexit^J"
+	return
+fi
+
 # basic
 
 HISTFILE=~/.mksh_history
