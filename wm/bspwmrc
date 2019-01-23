@@ -5,7 +5,6 @@ sxhkd -c /home/john/dev/config/wm/sxhkdrc &
 xbanish &
 urxvtd -q -f -o
 
-# feh --bg-fill /home/john/Pictures/Bakgrundsbilder/WAVES.JPG
 xsetroot -cursor_name left_ptr
 
 if [ -e /home/john/.bg ]; then
@@ -26,6 +25,7 @@ bspc config split_ratio           0.52
 bspc rule -a Gimp state=floating follow=on
 bspc rule -a ROX-Filer state=floating
 bspc rule -a MuPDF state=pseudo_tiled rectangle=794x1123+0+0
+bspc rule -a XClock state=pseudo_tiled
 
 bspc rule -a URxvt:launcher state=floating
 bspc rule -a URxvt:sxhkd_hotkeys state=floating
