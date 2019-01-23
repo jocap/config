@@ -6,15 +6,16 @@
 
 # terminal emulator
 super + Return
-	urxvtc
+	urxvtc && pointerfollow
 
 # terminal emulator in same directory (retrieved from terminal title)
 super + shift + Return
-	eval "urxvtc -cd $(xprop -id $(bspc query -N -n) WM_NAME | sed 's/^WM_NAME(STRING) = //g')"
+	eval "urxvtc -cd $(xprop -id $(bspc query -N -n) WM_NAME | sed 's/^WM_NAME(STRING) = //g')" && pointerfollow
 
 # program launcher
 super + space
 	LAUNCHER=true urxvtc -geometry 30x1 -name launcher -e mksh
+# ^ add pointerfollow?
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -46,7 +47,7 @@ alt + {F1,F2,F3}
 
 # sxhkd hotkey help
 super + F1
-	urxvtc -geometry 120x30 -name sxhkd_hotkeys -e /home/john/dev/config/wm/hotkeys.sh
+	urxvtc -geometry 120x30 -name sxhkd_hotkeys -e /home/john/dev/config/wm/hotkeys.sh && pointerfollow
 
 #
 # bspwm hotkeys
@@ -56,13 +57,9 @@ super + F1
 super + alt + Escape
 	bspc quit
 
-# close with pointer (when focus follows pointer)
-super + button2
-	bspc node -c
-
 # close / kill
 super + {_,shift + }w
-	bspc node -{c,k}
+	bspc node -{c,k} && pointerfollow
 
 # alternate between the tiled and monocle layout
 super + z
@@ -112,39 +109,51 @@ super + shift + x
 # focus/swap
 #
 
+# move pointer to focused node
+super + v
+	pointerfollow
+
 # focus the node in the given direction
 super + {_,shift + }{h,j,k,l}
-	bspc node -{f,s} {west,south,north,east}
+	bspc node -{f,s} {west,south,north,east} && pointerfollow
 
 # focus the node for the given path jump
 super + {p,b,comma,period}
-	bspc node -f @{parent,brother,first,second}
+	bspc node -f @{parent,brother,first,second} && pointerfollow
 
 # focus the next/previous node in the current desktop
 super + {_,shift + }n
-	bspc node -f {next,prev}.local
+	bspc node -f {next,prev}.local && pointerfollow
 
 # focus the next/previous desktop in the current monitor
 super + bracket{left,right}
-	bspc desktop -f {prev,next}.local
+	bspc desktop -f {prev,next}.local && pointerfollow
 
 # focus the last desktop
 super + grave
-	bspc desktop -f last
+	bspc desktop -f last && pointerfollow
 
-# focus the last node in the current desktop / in the other desktop
-super + {semicolon,Tab}
-	bspc node -f {last.local,last.!local}
+# focus the last node in the other desktop
+super + Tab
+	bspc node -f last.!local && pointerfollow
+
+# focus the last node in the current desktop
+super + semicolon
+	bspc node -f last.local && pointerfollow
+
+# focus the last node in the current desktop
+alt + Tab
+	bspc node -f last.local && pointerfollow
 
 # focus the older or newer node in the focus history
 super + {o,i}
 	bspc wm -h off; \
 	bspc node {older,newer} -f; \
-	bspc wm -h on
+	bspc wm -h on && pointerfollow
 
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+	bspc {desktop -f,node -d} '^{1-9,10}' && pointerfollow
 
 #
 # preselect
