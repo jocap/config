@@ -31,15 +31,15 @@ alt + {F10,F11}
 
 # reset volume
 alt + F4
-	mixerctl outputs.master=127
+	setvolume 128
 
 # lower / raise volume
 alt + {F5,F6}
-	mixerctl outputs.master={-,+}10
+	setvolume {-,+}10
 
 # lower / raise volume a little
 alt + {F7,F8}
-	mixerctl outputs.master={-,+}2
+	setvolume {-,+}2
 
 # switch keyboard layout
 alt + {F1,F2,F3}
@@ -55,7 +55,7 @@ super + F1
 
 # quit bspwm normally
 super + alt + Escape
-	pkill -x panel; bspc quit
+	kill $(cat /tmp/panel_pid) && rm /tmp/panel_pid; bspc quit
 
 # close / kill
 super + {_,shift + }w

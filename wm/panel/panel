@@ -13,6 +13,7 @@ mkfifo "$PANEL_FIFO"
 xtitle -sf 'T%s\n' > "$PANEL_FIFO" &
 clock -sf 'S%a %H:%M' > "$PANEL_FIFO" &
 bspc subscribe report > "$PANEL_FIFO" &
+watch -i /tmp/panel_volume | while read x; do cat $x > "$PANEL_FIFO"; done &
 
 . panel_colors
 
