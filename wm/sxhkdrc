@@ -4,13 +4,14 @@
 # wm independent hotkeys
 #
 
-# terminal emulator
+# terminal emulator in same directory if possible
 super + Return
-	urxvtc && pointerfollow
+	([ "$(bspc query -T -n | jq -r .client.className)" = URxvt ] && eval urxvtc -cd $(esc "$(xtitle)") || urxvtc) \
+	&& pointerfollow
 
-# terminal emulator in same directory (retrieved from terminal title)
+# terminal emulator
 super + shift + Return
-	eval "urxvtc -cd $(xprop -id $(bspc query -N -n) WM_NAME | sed 's/^WM_NAME(STRING) = //g')" && pointerfollow
+	urxvtc && pointerfollow
 
 # program launcher
 super + space
