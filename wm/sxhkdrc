@@ -15,8 +15,7 @@ super + shift + Return
 
 # program launcher
 super + space
-	LAUNCHER=true urxvtc -geometry 30x1 -name launcher -e mksh
-# ^ add pointerfollow?
+	dmenu_run
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -44,7 +43,7 @@ alt + {F7,F8}
 
 # switch keyboard layout
 alt + {F1,F2,F3}
-	setxkbmap {usx,sex,rux}
+	setlanguage {us,se,ru}
 
 # sxhkd hotkey help
 super + F1
@@ -91,19 +90,19 @@ super + shift + r
 #
 
 # set the window state (tiled, pseudo, floating, fullscreen)
-super + {t,shift + t,f,shift + f}
+super + {c,v,b,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # set the node flags (marked, locked, sticky, private)
-super + ctrl + {m,x,y,z}
-	bspc node -g {marked,locked,sticky,private}
+# super + ctrl + {m,x,y,z}
+# 	bspc node -g {marked,locked,sticky,private}
 
 # hide node
-super + x
+super + q
 	bspc node -g hidden
 
 # unhide all nodes
-super + shift + x
+super + shift + q
 	for i in $(bspc query -N -n .hidden); do bspc node $i -g hidden=off; done
 
 #
@@ -111,7 +110,7 @@ super + shift + x
 #
 
 # move pointer to focused node
-super + v
+super + x
 	pointerfollow
 
 # focus the node in the given direction
