@@ -22,14 +22,21 @@ bspc config borderless_monocle    true
 bspc config gapless_monocle       true
 bspc config split_ratio           0.52
 
-bspc rule -a Gimp state=floating follow=on
+bspc rule -a Gimp state=floating
+bspc rule -a Git-cola state=floating
+bspc rule -a fontforge state=floating
 bspc rule -a ROX-Filer state=floating
+bspc rule -a Xarchiver state=floating
 bspc rule -a MuPDF state=pseudo_tiled rectangle=794x1123+0+0
 bspc rule -a XClock state=pseudo_tiled
 
 bspc rule -a URxvt:launcher state=floating
 bspc rule -a URxvt:sxhkd_hotkeys state=floating
 
-panel & echo $! > /tmp/panel_pid
+# panel
 
 setvolume 128
+setlanguage us
+
+panel & echo $! > /tmp/panel_pid
+
