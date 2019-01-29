@@ -20,7 +20,7 @@ lexers.STYLE_TAG = ''
 lexers.STYLE_TYPE = ''
 lexers.STYLE_VARIABLE = ''
 lexers.STYLE_WHITESPACE = ''
-lexers.STYLE_EMBEDDED = 'back:#ffffaf'
+lexers.STYLE_EMBEDDED = 'back:#666666'
 lexers.STYLE_IDENTIFIER = ''
 
 lexers.STYLE_LINENUMBER = ''
