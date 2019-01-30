@@ -1,0 +1,4 @@
+#!/bin/sh
+
+setxkbmap ${1}
+echo L$1 > /tmp/panel_language

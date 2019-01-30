@@ -15,6 +15,10 @@ clock -sf 'S%a %H:%M' > "$PANEL_FIFO" &
 bspc subscribe report > "$PANEL_FIFO" &
 watch -i /tmp/panel_volume | while read x; do cat $x > "$PANEL_FIFO"; done &
 watch -i /tmp/panel_language | while read x; do cat $x > "$PANEL_FIFO"; done &
+while true; do
+	echo "B$(apm -l)" > "$PANEL_FIFO"
+	sleep 60
+done &
 
 . panel_colors
 

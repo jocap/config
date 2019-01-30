@@ -8,6 +8,10 @@ num_mon=$(bspc query -M | wc -l)
 
 while read -r line ; do
 	case $line in
+		B*)
+			# battery
+			battery="%{F$COLOR_SYS_FG}%{B$COLOR_SYS_BG} ${line#?}%% %{B-}%{F-}"
+			;;
 		L*)
 			# language
 			language="%{F$COLOR_SYS_FG}%{B$COLOR_SYS_BG} ${line#?} %{B-}%{F-}"
@@ -122,5 +126,5 @@ while read -r line ; do
 			done
 			;;
 	esac
-	printf "%s\n" "%{l}${wm}%{c}${title}%{r}${language}${volume}${clock}"
+	printf "%s\n" "%{l}${wm}%{c}${title}%{r}${battery}${language}${volume}${clock}"
 done
