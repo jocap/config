@@ -1,12 +1,5 @@
 # vi: ft=sh
 
-if [ "$LAUNCHER" = true ]; then
-	PS1="> "
-	bind -m ^M="^E &^Jexit^J"
-	bind -m ^C="^Uexit^J"
-	return
-fi
-
 # basic
 
 HISTFILE=~/.mksh_history
@@ -45,7 +38,7 @@ export PATH
 export EDITOR=vise
 export FCEDIT=$EDITOR
 export PAGER=less
-export BROWSER=chrome
+export BROWSER=firefox
 export NNN_USE_EDITOR=1
 
 # shortcuts
