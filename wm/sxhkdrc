@@ -17,18 +17,6 @@ super + shift + Return
 super + space
 	dmenu_run
 
-# make sxhkd reload its configuration files:
-super + Escape
-	pkill -USR1 -x sxhkd
-
-# reset screen temperature
-alt + F9
-	sct
-
-# warm screen temperature
-alt + {F10,F11}
-	sct {4500,3500}
-
 # reset volume
 alt + F4
 	setvolume 128
@@ -43,11 +31,39 @@ alt + {F7,F8}
 
 # switch keyboard layout
 alt + {F1,F2,F3}
-	setlanguage {us,se,ru}
+	lang={us,se,ru}; setlang $lang && setwinlang $lang
 
 # sxhkd hotkey help
 super + F1
 	urxvtc -geometry 120x30 -name sxhkd_hotkeys -e /home/john/dev/config/wm/hotkeys.sh && pointerfollow
+
+#
+# display
+#
+
+# reset screen temperature
+alt + F9
+	sct
+
+# warm screen temperature
+alt + {F10,F11}
+	sct {4500,3500}
+
+# toggle laptop display
+alt + {F12,shift + F12}
+	xrandr --auto && xrandr --output eDP-1 --{auto,off}
+
+#
+# mouse
+#
+
+# set mouse sensitivity
+super + {s,shift + s}
+	sensitivity {1,0.5}
+
+# move pointer to focused node
+super + a
+	pointerfollow
 
 #
 # bspwm hotkeys
@@ -90,7 +106,7 @@ super + shift + r
 #
 
 # set the window state (tiled, pseudo, floating, fullscreen)
-super + {c,v,b,f}
+super + {x,c,v,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # set the node flags (marked, locked, sticky, private)
@@ -108,10 +124,6 @@ super + shift + q
 #
 # focus/swap
 #
-
-# move pointer to focused node
-super + x
-	pointerfollow
 
 # focus the node in the given direction
 super + {_,shift + }{h,j,k,l}

@@ -1,0 +1,17 @@
+#!/bin/sh
+
+default=us
+set=setlanguage
+
+[ -d /tmp/winlangs ] && rm -r /tmp/winlangs
+mkdir -p /tmp/winlangs
+
+bspc subscribe node_focus | while read line; do
+	id=$(echo $line | awk '{print $4}')
+	id=$(printf '%d\n' $id)
+	if [ -e /tmp/winlangs/$id ]; then
+		$set $(cat /tmp/winlangs/$id)
+	else
+		$set $default
+	fi
+done
