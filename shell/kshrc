@@ -37,9 +37,11 @@ export BROWSER=firefox
 
 export MOZ_ACCELERATED=1 # make firefox render quickly
 
-alias ls='colorls -G'
 bind '^L'=clear-screen
 bind -m '^[l'='^Uls^J'
+
+alias ls='colorls -G'
+alias tree='colortree -C'
 
 set -o emacs
 set -A complete_git -- status commit push log
