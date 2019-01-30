@@ -7,8 +7,12 @@ urxvtd -q -f -o
 
 xsetroot -cursor_name left_ptr
 
+if [ -e /home/john/.bg-color ]; then
+	xsetroot -solid $(tail -1 /home/john/.bg-color)
+fi
+
 if [ -e /home/john/.bg ]; then
-	xsetroot -solid $(tail -1 /home/john/.bg)
+	sh /home/john/.bg
 fi
 
 bspc monitor -d I II III IV V
