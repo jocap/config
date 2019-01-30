@@ -7,29 +7,39 @@ alias __D=`echo "\002"` # left arrow = ^b = back a character
 alias __H=`echo "\001"` # home = ^a = start of line
 alias __Y=`echo "\005"` # end = ^e = end of line
 
-# ksh configuration
+# basic
 
 HISTFILE="$HOME/.ksh_history"
 HISTSIZE=5000
 
-PS1='${PWD} $ '
+# \[ ... \] is not conuted
+PS1='\[\e]2;$PWD\a\]' # set title to pwd
+PS1=$PS1'\[\e[38;5;244m\]' # gray
+PS1=$PS1'\w' # pwd
+PS1=$PS1'\[\e[0;0m\]' # reset
+PS1=$PS1' $ '
+
+# shortcuts
+
+d=~/dev
+c=~/dev/config
+
+# preferences
+
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11R6/bin:/usr/local/bin:/usr/local/sbin:/usr/games
+PATH=$HOME/bin:$PATH
+export PATH
+
 export EDITOR=vise
 export FCEDIT=$EDITOR
 export PAGER=less
 export BROWSER=firefox
 
-export FZF_DEFAULT_COMMAND='ag --nocolor -g ""'
-export FZF_DEFAULT_OPTS='--color=light,fg:00'
-
-PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11R6/bin:/usr/local/bin:/usr/local/sbin:/usr/games
-PATH=$HOME/bin:$PATH
-PATH=$HOME/.fzf/bin:$PATH
-export PATH
+export MOZ_ACCELERATED=1 # make firefox render quickly
 
 alias ls='colorls -G'
-bind -m '^L'='clear^J'
-bind -m '^[l'='ls^J'
-bind -m '^T'='^Afzf -m | xargs ^J' # simple fzf command
+bind '^L'=clear-screen
+bind -m '^[l'='^Uls^J'
 
 set -o emacs
 set -A complete_git -- status commit push log
