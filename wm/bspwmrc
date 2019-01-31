@@ -5,15 +5,17 @@ sxhkd -c /home/john/dev/config/wm/sxhkdrc &
 xbanish &
 urxvtd -q -f -o
 
+/home/john/bin/setvolume 128
+/home/john/bin/setlang us
+/home/john/bin/panel & echo $! > /tmp/panel_pid
+/home/john/bin/winlangd & echo $! > /tmp/winlangd_pid
+
+# appearance
+
 xsetroot -cursor_name left_ptr
+/home/john/bin/randombg
 
-if [ -e /home/john/.bg-color ]; then
-	xsetroot -solid $(tail -1 /home/john/.bg-color)
-fi
-
-if [ -e /home/john/.bg ]; then
-	sh /home/john/.bg
-fi
+# configuration
 
 bspc monitor -d I II III IV V
 
@@ -31,16 +33,10 @@ bspc rule -a Git-cola state=floating
 bspc rule -a fontforge state=floating
 bspc rule -a ROX-Filer state=floating
 bspc rule -a Xarchiver state=floating
+bspc rule -a Yad state=floating
+
 bspc rule -a MuPDF state=pseudo_tiled rectangle=794x1123+0+0
 bspc rule -a XClock state=pseudo_tiled
 
 bspc rule -a URxvt:launcher state=floating
 bspc rule -a URxvt:sxhkd_hotkeys state=floating
-
-# panel
-
-setvolume 128
-setlanguage us
-
-panel & echo $! > /tmp/panel_pid
-

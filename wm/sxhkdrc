@@ -71,7 +71,9 @@ super + a
 
 # quit bspwm normally
 super + alt + Escape
-	kill $(cat /tmp/panel_pid) && rm /tmp/panel_pid; bspc quit
+	kill $(cat /tmp/panel_pid) && rm /tmp/panel_pid; \
+	kill $(cat /tmp/winlangd_pid) && rm /tmp/winlangd_pid; \
+	bspc quit
 
 # close / kill
 super + {_,shift + }w
