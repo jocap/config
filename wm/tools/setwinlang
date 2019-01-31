@@ -1,7 +1,8 @@
 #!/bin/sh
 
 if [ -d /tmp/winlangs ]; then
-	id=$(bspc query -T -n | jq .id)
+	id=$(bspc query -N -n)
+	id=$(printf '%d' $id)
 	echo $id
 	echo $1 > /tmp/winlangs/$id
 else

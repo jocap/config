@@ -6,12 +6,19 @@ set=setlang
 [ -d /tmp/winlangs ] && rm -r /tmp/winlangs
 mkdir -p /tmp/winlangs
 
-bspc subscribe node_focus | while read line; do
-	id=$(echo $line | awk '{print $4}')
-	id=$(printf '%d\n' $id)
-	if [ -e /tmp/winlangs/$id ]; then
-		$set $(cat /tmp/winlangs/$id)
-	else
-		$set $default
-	fi
+bspc subscribe node_focus desktop_focus | while read event monitor desktop node; do
+	case "$event" in
+		(node_focus)
+			node=$(printf '%d' $node)
+
+			if [ -e /tmp/winlangs/$node ]; then
+				$set $(cat /tmp/winlangs/$node)
+			else
+				$set $default
+			fi
+			;;
+		(desktop_focus) # check if desktop is empty
+			bspc query -T -d | jq -e .root > /dev/null || $set $default
+			;;
+	esac
 done
