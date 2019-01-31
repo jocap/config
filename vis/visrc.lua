@@ -47,3 +47,6 @@ vis.ftdetect.filetypes.bash.mime = {
 vis.ftdetect.filetypes.mom = {
 	ext = { "%.mom$" },
 }
+vis.ftdetect.filetypes.xres = {
+	ext = { "%Xresources$" },
+}
