@@ -214,7 +214,7 @@ super + {Left,Down,Up,Right}
 #
 
 # open next node with spiral insertion scheme
-super + s
+super + m
 	bspc config automatic_scheme spiral && \
 	bspc subscribe node_add | while read; do \
 		bspc config automatic_scheme longest_side && break; \

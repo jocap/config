@@ -40,3 +40,4 @@ bspc rule -a XClock state=pseudo_tiled
 
 bspc rule -a URxvt:launcher state=floating
 bspc rule -a URxvt:sxhkd_hotkeys state=floating
+bspc rule -a URxvt:fff state=floating
