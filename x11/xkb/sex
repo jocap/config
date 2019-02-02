@@ -37,5 +37,5 @@ xkb_symbols "se" {
 //  key <RTRN> { [ Control_R, Control_R,          acute,     multiply ] };
 //  key <RCTL> { [ apostrophe, asterisk,          acute,     multiply  ] };
 
-    include "level3(rwin_switch)"
+    include "level3(lsgt_switch)"
 };

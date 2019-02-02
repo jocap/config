@@ -65,7 +65,7 @@ xkb_symbols "intl" {
 
     key <LSGT> { [ backslash,   bar,            backslash,      bar ] };
 
-    include "level3(rwin_switch)"
+    include "level3(lsgt_switch)"
 };
 
 partial alphanumeric_keys
@@ -74,7 +74,7 @@ xkb_symbols "intl-unicode" {
  name[Group1]= "English (*, but with Unicode combining)";
 
  include "usx(intl)"
- include "level3(rwin_switch)"
+ include "level3(lsgt_switch)"
 
  // grave, tilde
  key <TLDE> { [grave, asciitilde, U0300, U0303 ] };
