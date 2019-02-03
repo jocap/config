@@ -61,16 +61,30 @@ set -A complete_git -- status commit push log diff
 # makefile completion
 # ------------------------------------------------------------------------------
 
-complete_make() {
+function complete_make {
 	if [ -e GNUmakefile -o -e makefile -o -e Makefile ]; then
-		targets=$(cat Makefile | egrep "^[[:alnum:][:punct:]]{0,}:[[:space:]]{0,}[[:alnum:][:punct:][:space:]]{0,}$" | tr -d :)
+		targets=$(cat Makefile | egrep "^[[:alnum:][:punct:]]{0,}:[[:space:]]{0,}[[:alnum:][:punct:][:space:]]{0,}$" | sed 's/:.*//')
 		set -A complete_make -- $targets
 		set -A complete_gmake -- $targets
 	fi
 }
 complete_make
 
-cd() {
-	\builtin cd $@
+# ------------------------------------------------------------------------------
+# advice
+# ------------------------------------------------------------------------------
+
+function cd {
+	# cd to directory of file
+	if [ $# -gt 0 ]; then
+		eval dir=\${$#}
+		shift 1
+		[ ! -d "$dir" -a -e "$dir" ] && dir=$(dirname "$dir")
+		\builtin cd "$@" "$dir"
+	else
+		\builtin cd
+	fi
+
+	# generate make completion
 	complete_make
 }
