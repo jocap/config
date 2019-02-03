@@ -1,0 +1,11 @@
+! vi: ft=xres
+#include "colors"
+
+*.background: #1C1C1C
+*.foreground: #FFFFFF
+
+YELLOW: #71A2BE
+B_BLUE: #7AD0FF
+GRAY: #CFCFCF
+B_GREEN: #56F056
+B_YELLOW: #EDD333

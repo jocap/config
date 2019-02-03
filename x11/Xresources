@@ -1,32 +1,11 @@
-! xrdb -load ~/.Xresources
+#include "colors/blue"
 
-! URxvt.font: xft:DejaVu Sans Mono:size=9
-! URxvt.letterSpace: -1
+URxvt.font: xft:DejaVu Sans Mono:pixelsize=16
+URxvt.letterSpace: -1
 
-! URxvt.font: xft:Luculent:pixelsize=12
-! URxvt.font: xft:Cousine:pixelsize=12
-
-! URxvt.font:           -*-tewi-medium-*-normal-*-11-90-*-*-*-*-iso10646-1
-! URxvt.boldFont:       -*-tewi-bold-*-normal-*-11-80-*-*-*-*-iso10646-1
-! URxvt.italicFont:     -*-tewi-medium-*-normal-*-11-90-*-*-*-*-iso10646-1
-! URxvt.boldItalicFont: -*-tewi-bold-*-normal-*-11-80-*-*-*-*-iso10646-1
-
-! URxvt.font:           -*-leggie-medium-r-normal--12-*-*-*-*-*-iso10646-1
-! URxvt.boldFont:       -*-leggie-bold-r-normal--12-*-*-*-*-*-iso10646-1
-! URxvt.italicFont:     -*-leggie-medium-i-normal--12-*-*-*-*-*-iso10646-1
-! URxvt.boldItalicFont: -*-leggie-bold-i-normal--12-*-*-*-*-*-iso10646-1
-
-! URxvt.font:     -*-tamsyn-medium-*-normal--14-*-*-*-*-iso8859-1
-! URxvt.boldFont: -*-tamsyn-bold-*-normal--14-*-*-*-*-iso8859-1
-
-URxvt.font:           -windows-dina-medium-r-normal--10-*-*-*-*-*-*-cp1252
-URxvt.boldFont:       -windows-dina-bold-r-normal--10-*-*-*-*-*-*-cp1252
-URxvt.italicFont:     -windows-dina-medium-i-normal--10-*-*-*-*-*-*-cp1252
-URxvt.boldItalicFont: -windows-dina-bold-i-normal--10-*-*-*-*-*-*-cp1252
-
-! URxvt.font:     -*-terminus-medium-r-*--12-*-*-*-*-*-iso8859-1
-! URxvt.boldFont: -*-terminu*-bold-r-*--12-*-*-*-*-*-iso8859-1
-! ^ match also terminusmod for bold 12px
+! URxvt.font:     -*-terminus-medium-r-*--16-*-*-*-*-*-iso8859-1
+! URxvt.boldFont: -*-terminu*-bold-r-*--16-*-*-*-*-*-iso8859-1
+! ^ match also terminusmod for bold
 
 URxvt.internalBorder: 25
 URxvt.scrollBar: false
@@ -43,30 +22,3 @@ URxvt.keysym.C-question:  resize-font:show
 URxvt.iso14755: false
 URxvt.iso14755_52: false
 
-! Atom colors
-
-!URxvt.background: #FFFFEB
-!URxvt.background: #FFFFFF
-!URxvt.foreground: #2D2D2D
-
-!URxvt.color4: #1062CD
-!URxvt.color7: #CFCFCF
-!URxvt.color10: #56F056
-!URxvt.color11: #EDD333
-!URxvt.color12: #009DFF
-
-! Dark colors
-
-URxvt.background: #1C1C1C
-URxvt.foreground: #FFFFFF
-
-! blue:
-URxvt.color4: #71A2BE
-URxvt.color12: #7AD0FF
-! gray:
-URxvt.color7: #CFCFCF
-! green:
-URxvt.color10: #56F056
-! yellow:
-URxvt.color11: #EDD333
-!

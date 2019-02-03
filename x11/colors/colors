@@ -1,0 +1,17 @@
+#define BLACK     *.color0
+#define RED       *.color1
+#define GREEN     *.color2
+#define YELLOW    *.color3
+#define BLUE      *.color4
+#define MAGENTA   *.color5
+#define CYAN      *.color6
+#define GRAY      *.color7
+
+#define B_BLACK   *.color8
+#define B_RED     *.color9
+#define B_GREEN   *.color10
+#define B_YELLOW  *.color11
+#define B_BLUE    *.color12
+#define B_MAGENTA *.color13
+#define B_CYAN    *.color14
+#define B_GRAY    *.color15
