@@ -88,3 +88,22 @@ function cd {
 	# generate make completion
 	complete_make
 }
+
+# ------------------------------------------------------------------------------
+# output saving (experimental)
+# ------------------------------------------------------------------------------
+
+function save { }
+function saved {
+	fc -nrl 0 | tr -d '\t' | sed -n '/^save$/,/^/p' | nth 2
+}
+
+alias 1='eval $(saved) | nth 1'
+alias 2='eval $(saved) | nth 2'
+alias 3='eval $(saved) | nth 3'
+alias 4='eval $(saved) | nth 4'
+alias 5='eval $(saved) | nth 5'
+alias 6='eval $(saved) | nth 6'
+alias 7='eval $(saved) | nth 7'
+alias 8='eval $(saved) | nth 8'
+alias 9='eval $(saved) | nth 9'
