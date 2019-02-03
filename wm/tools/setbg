@@ -1,0 +1,6 @@
+#!/bin/sh
+
+bg=$(xrdb -query | scan '*.background: %s')
+xsetroot -solid $bg
+bspc config normal_border_color $bg
+bspc config focused_border_color $(xrdb -query | scan '*.color7: %s')

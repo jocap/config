@@ -1,19 +1,19 @@
 #! /bin/sh
 
-xrdb -load /home/john/.Xresources
-sxhkd -c /home/john/dev/config/wm/sxhkdrc &
+xrdb -load ~/.Xresources
+sxhkd -c ~/dev/cfg/wm/sxhkdrc &
 xbanish &
 urxvtd -q -f -o
 
-/home/john/bin/setvolume 128
-/home/john/bin/setlang us
-/home/john/bin/panel & echo $! > /tmp/panel_pid
-/home/john/bin/winlangd & echo $! > /tmp/winlangd_pid
+setvolume 128
+setlang usx
+panel & echo $! > /tmp/panel_pid
+winlangd & echo $! > /tmp/winlangd_pid
 
 # appearance
 
+setbg
 xsetroot -cursor_name left_ptr
-/home/john/bin/randombg
 
 # configuration
 
@@ -41,3 +41,4 @@ bspc rule -a XClock state=pseudo_tiled
 bspc rule -a URxvt:launcher state=floating
 bspc rule -a URxvt:sxhkd_hotkeys state=floating
 bspc rule -a URxvt:fff state=floating
+bspc rule -a URxvt:htop state=pseudo_tiled
