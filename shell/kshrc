@@ -7,24 +7,30 @@ alias __D=`echo "\002"` # left arrow = ^b = back a character
 alias __H=`echo "\001"` # home = ^a = start of line
 alias __Y=`echo "\005"` # end = ^e = end of line
 
+# ------------------------------------------------------------------------------
 # basic
+# ------------------------------------------------------------------------------
 
 HISTFILE="$HOME/.ksh_history"
 HISTSIZE=5000
 
 # \[ ... \] is not conuted
 PS1='\[\e]2;$PWD\a\]' # set title to pwd
-PS1=$PS1'\[\e[38;5;244m\]' # gray
+PS1=$PS1'\[\e[37m\]' # gray
 PS1=$PS1'\w' # pwd
 PS1=$PS1'\[\e[0;0m\]' # reset
 PS1=$PS1' $ '
 
+# ------------------------------------------------------------------------------
 # shortcuts
+# ------------------------------------------------------------------------------
 
 d=~/dev
 c=~/dev/config
 
+# ------------------------------------------------------------------------------
 # preferences
+# ------------------------------------------------------------------------------
 
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11R6/bin:/usr/local/bin:/usr/local/sbin:/usr/games
 PATH=$HOME/bin:$PATH
@@ -46,7 +52,9 @@ alias tree='colortree -C'
 set -o emacs
 set -A complete_git -- status commit push log diff
 
+# ------------------------------------------------------------------------------
 # makefile completion
+# ------------------------------------------------------------------------------
 
 complete_make() {
 	if [ -e GNUmakefile -o -e makefile -o -e Makefile ]; then
