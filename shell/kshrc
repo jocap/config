@@ -45,12 +45,14 @@ export PAGER=less
 export BROWSER=firefox
 
 export MOZ_ACCELERATED=1 # make firefox render quickly
+export FFF_CD_FILE=$HOME/.fff_d
 
 bind '^L'=clear-screen
 bind -m '^[l'='^Uls^J'
 
 alias ls='colorls -G'
 alias tree='colortree -C'
+alias f='fff && cd $(cat $HOME/.fff_d)'
 
 set -o emacs
 set -A complete_git -- status commit push log diff
