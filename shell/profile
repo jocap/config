@@ -8,7 +8,7 @@ fi
 
 # bspwm panel
 
-. /home/john/dev/cfg/wm/panel/profile
+. /home/john/cfg/wm/panel/profile
 
 trap '[ "$SSH_AGENT_PID" ] && kill -9 "$SSH_AGENT_PID"' EXIT
 
