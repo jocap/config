@@ -1,0 +1,15 @@
+@-moz-document domain(lobste.rs) {
+	/* Replace Submit Story link text */
+	#header a[href="/stories/new"] {
+		visibility: hidden;
+		position: relative;
+		margin-right: -45px;
+	}
+	#header a[href="/stories/new"]::after {
+		content: "Submit";
+		visibility: visible;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+}
