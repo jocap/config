@@ -31,7 +31,7 @@ alt + {F7,F8}
 
 # switch keyboard layout
 alt + {F1,F2,F3}
-	setlang {usx,sex,rux} && setwinlang {usx,sex,rux}
+	lang={usx,sex,rux}; setlang $lang && setwinlang $lang
 
 # sxhkd hotkey help
 super + F1
