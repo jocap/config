@@ -1,0 +1,69 @@
+#!/bin/sh
+
+# maild is a daemon for mbsync that syncs account $1 every $2 minutes.
+# In addition, it automatically extracts password from PassCmd on
+# startup.  Requires mbsync and gpg2.
+
+# ----------------------------------------------------------------------
+# Setup
+# ----------------------------------------------------------------------
+
+fifo=~/cfg/mail/mailfifo
+secret=~/cfg/mail/mailsecret
+mbsyncrc=~/cfg/mail/mbsyncrc
+usage="usage: $0 account [minutes]"
+passphrase=$RANDOM
+
+err() {
+	echo $@ 1>&2
+	exit 1
+}
+
+# ----------------------------------------------------------------------
+# Check arguments
+# ----------------------------------------------------------------------
+
+[ $# -lt 1 -o $# -gt 2 -o -z "$1" ] && err $usage
+account=$1
+if [ -z "$2" ]; then
+	minutes=30
+else
+	[ "$2" -gt 0 ] && minutes=$2 || err $usage
+fi
+
+[ -e "$secret" ] && err '$secret already exists'
+touch "$secret"
+trap 'rm "$secret"' INT
+
+# ----------------------------------------------------------------------
+# Replace PassCmd with Pass and store configuration in encrypted file
+# ----------------------------------------------------------------------
+
+while read setting value; do
+	case "$setting" in
+	PassCmd)
+		PassCmd=$(printf '%s\n' "$value" | sed -e 's/^"//' -e 's/^+//' -e 's/"$//') # remove quotes and potential plus
+		password=$(eval $PassCmd | sed -e 's/"/\"/g') # escape
+		printf 'Pass "%s"' "$password"
+		;;
+	*)
+		printf '%s %s\n' "$setting" "$value"
+	esac
+done < "$mbsyncrc" | gpg2 --batch --encrypt-to maild --symmetric --passphrase "$passphrase"> "$secret"
+
+# ----------------------------------------------------------------------
+# Sync mail every $minutes minutes
+# ----------------------------------------------------------------------
+
+while true; do
+	printf '(%s)\n' $(date +%H:%M)
+
+	[ ! -e "$secret" ] && err "$secret was removed"
+	[ -e "$fifo" ] && err '$fifo already exists'
+	mkfifo "$fifo"
+	mbsync -c "$fifo" "$account" &
+	gpg2 --batch --decrypt --passphrase "$passphrase" "$secret" 2> /dev/null > "$fifo"
+	rm "$fifo"
+
+	sleep $((minutes * 60))
+done
