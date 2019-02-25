@@ -11,6 +11,8 @@ alias __Y=`echo "\005"` # end = ^e = end of line
 # basic
 # ------------------------------------------------------------------------------
 
+stty dsusp undef # i use ^Z instead of ^Y
+
 HISTFILE="$HOME/.ksh_history"
 HISTSIZE=5000
 
