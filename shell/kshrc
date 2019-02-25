@@ -57,6 +57,8 @@ export FFF_COL2=7
 
 bind '^L'=clear-screen
 bind -m '^[l'='^Uls^J'
+bind -m '^\'='^Adoas ^E'     # add doas
+bind -m '^[\'='^A^[d^[[3~^E' # remove doas (or any first word)
 
 alias ls='colorls -G'
 alias tree='colortree -C'
