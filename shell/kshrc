@@ -51,6 +51,9 @@ export MOZ_ACCELERATED=1 # make firefox render quickly
 export PARINIT='rTbgqR B=.,?_A_a Q=_s>|'
 
 export FFF_CD_FILE=$HOME/.fff_d
+export FFF_ERROR_ON_SIGINT=1
+export FFF_SET_TITLE=1
+export FFF_COL2=7
 
 bind '^L'=clear-screen
 bind -m '^[l'='^Uls^J'
