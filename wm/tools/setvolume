@@ -1,7 +1,3 @@
 #!/bin/sh
 
 mixerctl outputs.master=$1 > /dev/null
-
-cat > /tmp/panel_volume <<END
-V$(mixerctl -n outputs.master | sed 's/,.*$//')
-END

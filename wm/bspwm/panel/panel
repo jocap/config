@@ -1,0 +1,49 @@
+#!/bin/sh
+
+if xdo id -a "$PANEL_WM_NAME" > /dev/null ; then
+	printf "%s\n" "The panel is already running." >&2
+	exit 1
+fi
+
+# ------------------------------------------------------------------------------
+# exit handling
+# ------------------------------------------------------------------------------
+
+set -A pids
+
+add_pid() {
+	pids[${#pids}]=$!
+}
+
+on_exit() {
+	
+}
+
+# trap 'on_exit' INT TERM QUIT EXIT
+trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
+
+# ------------------------------------------------------------------------------
+# panel
+# ------------------------------------------------------------------------------
+
+[ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
+mkfifo "$PANEL_FIFO"
+
+xtitle -sf 'T%s\n' > "$PANEL_FIFO" & add_pid
+clock -sf 'S%a %H:%M' > "$PANEL_FIFO" & add_pid
+bspc subscribe report > "$PANEL_FIFO" & add_pid
+watch -i /tmp/panel_volume | while read x; do cat $x > "$PANEL_FIFO"; done & add_pid
+watch -i /tmp/panel_language | while read x; do cat $x > "$PANEL_FIFO"; done & add_pid
+while true; do
+	echo "B$(apm -l)" > "$PANEL_FIFO"
+	sleep 60
+done & add_pid
+
+. panel_colors
+
+panel_bar < "$PANEL_FIFO" | lemonbar -a 32 -u 2 -n "$PANEL_WM_NAME" -g x$PANEL_HEIGHT -f "$PANEL_FONT" -F "$COLOR_DEFAULT_FG" -B "$COLOR_DEFAULT_BG" | sh & add_pid
+
+wid=$(xdo id -m -a "$PANEL_WM_NAME")
+xdo above -t "$(xdo id -N Bspwm -n root | sort | head -n 1)" "$wid"
+
+wait

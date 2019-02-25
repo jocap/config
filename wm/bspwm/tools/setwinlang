@@ -1,7 +1,10 @@
 #!/bin/sh
 
 if [ -d /tmp/winlangs ]; then
-	echo $1 > /tmp/winlangs/$pfw
+	id=$(bspc query -N -n)
+	id=$(printf '%d' $id)
+	echo $id
+	echo $1 > /tmp/winlangs/$id
 else
 	echo "/tmp/winlangs is not a directory" 1>&2
 	return 1

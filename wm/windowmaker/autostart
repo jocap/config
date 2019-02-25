@@ -14,10 +14,14 @@
 #
 # This file must be executable.
 #
-xrdb -load /home/john/.Xresources
 
+xrdb -load /home/john/.Xresources
+setxkbmap usx
+randombg
+feh --bg-tile '/home/john/usr/pic/bg/mac/OS9_Default.png'
 compton -cG -o 0.25 \
 	--shadow-exclude 'WM_CLASS@:s !' \
 	--shadow-exclude 'focused = 0' \
 	--paint-on-overlay \
 	--vsync opengl &
+xbanish &

@@ -7,8 +7,8 @@ urxvtd -q -f -o
 
 setvolume 128
 setlang usx
-panel & echo $! > /tmp/panel_pid
-winlangd & echo $! > /tmp/winlangd_pid
+(panel & echo $! > /tmp/panel_pid)
+(winlangd & echo $! > /tmp/winlangd_pid)
 
 # appearance
 
@@ -20,7 +20,7 @@ xsetroot -cursor_name left_ptr
 bspc monitor -d I II III IV V
 
 bspc config border_width          2
-bspc config window_gap            32
+bspc config window_gap            30
 
 bspc config focus_follows_pointer true
 bspc config single_monocle        false
@@ -37,6 +37,7 @@ bspc rule -a Yad state=floating
 
 bspc rule -a MuPDF state=pseudo_tiled rectangle=794x1123+0+0
 bspc rule -a XClock state=pseudo_tiled
+bspc rule -a Transmission state=pseudo_tiled
 
 bspc rule -a URxvt:launcher state=floating
 bspc rule -a URxvt:sxhkd_hotkeys state=floating

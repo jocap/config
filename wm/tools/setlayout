@@ -1,0 +1,4 @@
+#!/bin/sh
+
+setxkbmap $1
+echo ${1%x} > /tmp/keyboard_layout

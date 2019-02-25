@@ -1,24 +1,22 @@
 #!/bin/sh
 
-default=us
-set=setlang
+default=usx
+set=setxkbmap
 
 [ -d /tmp/winlangs ] && rm -r /tmp/winlangs
 mkdir -p /tmp/winlangs
 
-bspc subscribe node_focus desktop_focus | while read event monitor desktop node; do
-	case "$event" in
-		(node_focus)
-			node=$(printf '%d' $node)
-
-			if [ -e /tmp/winlangs/$node ]; then
-				$set $(cat /tmp/winlangs/$node)
-			else
-				$set $default
-			fi
-			;;
-		(desktop_focus) # check if desktop is empty
-			bspc query -T -d | jq -e .root > /dev/null || $set $default
-			;;
-	esac
+last=$(pfw)
+while true; do
+	new=$(pfw)
+	if [ "$new" != "$last" ]; then
+		echo "old: $last, new: $new"
+		if [ -e /tmp/winlangs/$new ]; then
+			$set $(cat /tmp/winlangs/$new)
+		else
+			$set $default
+		fi
+		last=$new
+	fi
+	sleep 0.2
 done
