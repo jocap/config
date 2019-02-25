@@ -1,8 +1,8 @@
 ! vi: ft=xres
 #include "colors"
 
-*.background: #114488
-*.foreground: #FFFFFF
+URxvt.background: #114488
+URxvt.foreground: #FFFFFF
 
 B_BLACK: #001665
 RED: #FF8A8A

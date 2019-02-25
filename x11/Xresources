@@ -1,11 +1,18 @@
-#include "colors/blue"
+#include "/home/john/cfg/x11/colors/gray"
 
-URxvt.font: xft:DejaVu Sans Mono:pixelsize=16
-URxvt.letterSpace: -1
+! URxvt.font: xft:DejaVu Sans Mono:pixelsize=16
+! URxvt.letterSpace: -1
 
 ! URxvt.font:     -*-terminus-medium-r-*--16-*-*-*-*-*-iso8859-1
 ! URxvt.boldFont: -*-terminu*-bold-r-*--16-*-*-*-*-*-iso8859-1
 ! ^ match also terminusmod for bold
+
+URxvt.font: xft:Ttyp0:pixelsize=18
+
+! URxvt.font:           -uw-ttyp0-medium-r-normal--16-*-*-*-*-*-iso8859-1
+! URxvt.boldFont:       -uw-ttyp0-bold-r-normal--16-*-*-*-*-*-iso8859-1
+! URxvt.italicFont:     -uw-ttyp0-medium-i-normal--16-*-*-*-*-*-iso8859-1
+! URxvt.boldItalicFont: -uw-ttyp0-bold-i-normal--16-*-*-*-*-*-iso8859-1
 
 URxvt.internalBorder: 25
 URxvt.scrollBar: false
