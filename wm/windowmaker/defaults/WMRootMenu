@@ -1,0 +1,58 @@
+(
+  "Window Maker",
+  (
+    Applications,
+    ("urxvt (same)", SHORTCUT, "Mod4+Return", EXEC, u),
+    ("urxvt (home)", SHORTCUT, "Shift+Mod4+Return", EXEC, urxvt),
+    (Firefox, EXEC, firefox),
+    (LibreOffice, EXEC, libreoffice),
+    (Transmission, EXEC, "transmission-gtk")
+  ),
+  (
+    Control,
+    (
+      Temperature,
+      (Day, SHORTCUT, "Mod1+F9", EXEC, sct),
+      (Twilight, SHORTCUT, "Mod1+F10", EXEC, "sct 4500"),
+      (Night, SHORTCUT, "Mod1+F11", EXEC, "sct 3500")
+    ),
+    (
+      Volume,
+      (Raise, SHORTCUT, "Mod1+F6", EXEC, "setvolume +10"),
+      ("Raise a little", SHORTCUT, "Mod1+F8", EXEC, "setvolume +2"),
+      (Lower, SHORTCUT, "Mod1+F5", EXEC, "setvolume -10"),
+      ("Lower a little", SHORTCUT, "Mod1+F7", EXEC, "setvolume -2"),
+      (Default, SHORTCUT, "Mod1+F4", EXEC, "setvolume 128")
+    ),
+    (
+      Mouse,
+      (Trackpad, SHORTCUT, "Mod4+s", EXEC, "sensitivity 1"),
+      (Trackball, SHORTCUT, "Shift+Mod4+s", EXEC, "sensitivity 0.5")
+    ),
+    (
+      Keyboard,
+      (English, SHORTCUT, "Mod1+F1", EXEC, "setlayout usx"),
+      (Swedish, SHORTCUT, "Mod1+F2", EXEC, "setlayout sex"),
+      (Russian, SHORTCUT, "Mod1+F3", EXEC, "setlayout rux")
+    ),
+    (
+      Desktop,
+      ("Default wallpaper", SHORTCUT, "Mod4+r", EXEC, setbg),
+      ("Random wallpaper", SHORTCUT, "Shift+Mod4+r", EXEC, randombg)
+    )
+  ),
+  (Run..., SHORTCUT, "Mod4+space", EXEC, dmenu_run),
+  (Panel, SHORTCUT, "Mod1+Return", EXEC, dmenu_panel),
+  (Workspaces, WORKSPACE_MENU),
+  (
+    Workspace,
+    ("Hide Others", HIDE_OTHERS),
+    ("Show All", SHOW_ALL),
+    ("Arrange Icons", ARRANGE_ICONS),
+    (Refresh, REFRESH),
+    ("Save Session", SAVE_SESSION),
+    ("Clear Session", CLEAR_SESSION)
+  ),
+  ("Restart Window Maker", RESTART),
+  ("Exit Window Maker", EXIT)
+)

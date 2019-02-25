@@ -1,0 +1,34 @@
+{
+  mupdf.MuPDF = {
+    NoTitlebar = Yes;
+    AlwaysUserIcon = No;
+    NoResizebar = Yes;
+  };
+  firefox.Firefox = {
+    Icon = firefox.png;
+  };
+  URxvt = {
+    AlwaysUserIcon = No;
+  };
+  fff.URxvt = {
+    NoTitlebar = Yes;
+    AlwaysUserIcon = No;
+    NoResizebar = Yes;
+  };
+  Navigator.Firefox = {
+    NoTitlebar = Yes;
+    AlwaysUserIcon = No;
+    NoResizebar = Yes;
+  };
+  htop.URxvt = {
+    NoTitlebar = Yes;
+    AlwaysUserIcon = No;
+    NoResizebar = Yes;
+  };
+  urxvt.URxvt = {
+    NoTitlebar = Yes;
+    AlwaysUserIcon = No;
+    NoResizebar = Yes;
+    Icon = Shell.png;
+  };
+}
