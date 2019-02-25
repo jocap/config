@@ -43,7 +43,7 @@ export PATH
 
 export EDITOR=vise
 export FCEDIT=$EDITOR
-export PAGER=less
+export PAGER='less -c'
 export BROWSER=firefox
 
 export MOZ_ACCELERATED=1 # make firefox render quickly
