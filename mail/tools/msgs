@@ -1,0 +1,24 @@
+#!/bin/ksh
+
+# msgs displays a list of all unseen e-mails (except news).
+
+mlist -s ~/mail/{inbox,plus/*} |
+# remove news:
+fgrep -v 'plus/Nyheter' |
+# sort newest - oldest:
+msort -dr |
+# -> path Subject [\n] path From [\n]:
+mhdr -dHh Subject:From |
+# -> path Subject + path From [\n]:
+paste - - |
+# -> human path [\t] From [\t] Subject:
+awk -F '\t' '{
+	split($1, f, "/");
+	if (f[5] == "plus" || f[5] == "lists") printf("%s/%s", f[5], f[6])
+	else printf("%s", f[5])
+	print "\t", $4, "\t", $2
+}' |
+# convert to columns:
+column -ts '	' |
+# display in less (behaving like more, but truncating long lines)
+less -SXc
