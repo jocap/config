@@ -18,4 +18,7 @@ if [ -x /usr/local/bin/dbus-launch -a -z "$DBUS_SESSION_BUS_ADDRESS" ]; then
         eval `dbus-launch --sh-syntax --exit-with-x11`
 fi
 
-exec bspwm -c /home/john/cfg/wm/bspwmrc
+# exec bspwm -c /home/john/cfg/wm/bspwmrc
+# exec /home/john/dev/prj/feldwm/cfg/feldrc
+
+exec wmaker
