@@ -7,7 +7,7 @@ export LC_CTYPE=en_US.UTF-8
 setxkbmap usx
 
 sensitivity 1.0
-xset m 3/1 3
+xset m 2 0 # smooth acceleration
 
 xmodmap -e "pointer = 1 2 3 6 7 10 11 4 5 8 9 12 13 14 15 16"
 xinput set-prop /dev/wsmouse0 "WS Pointer Wheel Emulation" 1
