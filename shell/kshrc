@@ -62,8 +62,11 @@ set -A complete_git -- status commit push log diff
 # ------------------------------------------------------------------------------
 
 function complete_make {
-	if [ -e GNUmakefile -o -e makefile -o -e Makefile ]; then
-		targets=$(cat Makefile | egrep "^[[:alnum:][:punct:]]{0,}:[[:space:]]{0,}[[:alnum:][:punct:][:space:]]{0,}$" | sed 's/:.*//')
+	[ -e GNUmakefile ] && local Makefile=GNUmakefile
+	[ -e makefile ] && local Makefile=makefile
+	[ -e Makefile ] && local Makefile=Makefile
+	if [ ! -z "$Makefile" ]; then
+		targets=$(cat $Makefile | egrep "^[[:alnum:][:punct:]]{0,}:[[:space:]]{0,}[[:alnum:][:punct:][:space:]]{0,}$" | sed 's/:.*//')
 		set -A complete_make -- $targets
 		set -A complete_gmake -- $targets
 	fi
