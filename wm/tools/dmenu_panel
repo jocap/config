@@ -1,0 +1,15 @@
+#!/bin/sh
+
+(
+	printf 'layout: %s\n' $(cat /tmp/keyboard_layout)             # layout
+	printf 'battery: %s%%' $(apm -l)                              # battery
+	[ "$(apm -a)" = 1 ] && printf '*\n' || printf '\n'            # charging
+	printf 'e-mails: %s\n' $(msgs | wc -l | tr -d ' ') # e-mails
+) | dmenu -nb '#dcdcdc' -nf '#000000' -sb '#808080' "$@" |
+while read selection; do
+	case "$selection" in
+	layout:*) setlayout usx ;;                # reset layout
+	battery:*) zzz ;;                         # go to sleep
+	e-mails:*) urxvt -e ksh -c "msgs; ksh" ;; # view new e-mails
+	esac
+done
