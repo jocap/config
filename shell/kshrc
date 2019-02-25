@@ -47,6 +47,9 @@ export PAGER='less -c'
 export BROWSER=firefox
 
 export MOZ_ACCELERATED=1 # make firefox render quickly
+
+export PARINIT='rTbgqR B=.,?_A_a Q=_s>|'
+
 export FFF_CD_FILE=$HOME/.fff_d
 
 bind '^L'=clear-screen
