@@ -21,10 +21,14 @@ xkb_symbols "se" {
 	key <AC10> { [ odiaeresis,	Odiaeresis,	oslash,		Ooblique ] };
 	key <AC11> { [ adiaeresis,	Adiaeresis,	ae,		AE ] };
 
+	key <AD11> { [ aring,		Aring,		bracketleft,	braceleft ] };
+	key <AD12> { [ backslash,	bar,		bracketright,	braceright ] };
+
 	key <TLDE> { [ section,		onehalf,	paragraph,	threequarters ] };
 	key <BKSL> { [ apostrophe,	asterisk,	rightsinglequotemark,	rightdoublequotemark ] };  
 
-	key <LSGT> { [ less,		greater,	bar,		brokenbar ] };
+	key <LSGT> { [ asciitilde,	grave,		dead_diaeresis,	dead_circumflex ] };
+
 	include "kpdl(comma)"
 	
 	key <AB08> { [ comma,		semicolon,	less,		periodcentered ] };

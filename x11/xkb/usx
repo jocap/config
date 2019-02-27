@@ -38,7 +38,7 @@ xkb_symbols "intl" {
 	key <AD09> { [ o,		O,		oacute,		Oacute ] };
 	key <AD10> { [ p,		P,		odiaeresis,	Odiaeresis ] };
 	key <AD11> { [ bracketleft,	braceleft,	guillemotleft,	leftdoublequotemark ] };
-	key <AD12> { [bracketright,	braceright,	guillemotright,	rightdoublequotemark ] };
+	key <AD12> { [ bracketright,	braceright,	guillemotright,	rightdoublequotemark ] };
 
 	key <AC01> { [ a,	A,	aacute,	Aacute ] };
 	key <AC02> { [ s,	S,	ssharp,	section ] };
@@ -60,8 +60,8 @@ xkb_symbols "intl" {
 	key <AB05> { [ b,	B,		b,		B ] };
 	key <AB06> { [ n,	N,		ntilde,		Ntilde ] };
 	key <AB07> { [ m,	M,		mu,		mu ] };
-	key <AB08> { [ comma,	less,		ccedilla,	Ccedilla ] };
-	key <AB09> { [ period,	greater,	dead_abovedot,	dead_caron ] };
+	key <AB08> { [ comma,	less,		periodcentered,	Ccedilla ] };
+	key <AB09> { [ period,	greater,	ellipsis,	dead_caron ] };
 	key <AB10> { [ slash,	question,	questiondown,	dead_hook ] };
 
 	key <LSGT> { [ asciitilde,	grave,	backslash,	bar ] };
