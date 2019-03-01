@@ -52,7 +52,7 @@ done < "$mbsyncrc"
 # Sync mail every $minutes minutes
 # ----------------------------------------------------------------------
 
-while true; do
+sync() {
 	printf '(%s)\n' $(date +%H:%M)
 
 	[ -e "$fifo" ] && err '$fifo already exists'
@@ -60,6 +60,9 @@ while true; do
 	mbsync -c "$fifo" "$account" &
 	printf '%s\n' "$config" > "$fifo"
 	rm "$fifo"
+}
 
+while true; do
+	sync
 	sleep $((minutes * 60))
 done
