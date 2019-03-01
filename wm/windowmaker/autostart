@@ -24,4 +24,5 @@ compton -cG -o 0.25 \
 	--shadow-exclude 'focused = 0' \
 	--paint-on-overlay \
 	--vsync opengl &
-xbanish &
+dunst &
+batterywatch &

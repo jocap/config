@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# watch battery life and warn at certain levels
+
+warn() { notify-send -u "$1" 'Battery low' ${BATTERY}%; }
+
+while BATTERY=$(apm -l); do
+	if [ "$(apm -a)" -eq 0 ]; then # if not charging
+		case "$BATTERY" in
+			10) warn normal ;;
+			5) warn critical ;;
+		esac
+	fi
+	sleep 30
+done
