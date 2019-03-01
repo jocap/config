@@ -1,6 +1,7 @@
 #!/bin/sh
 
 xset fp+ /usr/local/share/fonts/terminus
+xset fp+ /usr/local/share/fonts/mscorefonts
 
 export LC_CTYPE=en_US.UTF-8
 
