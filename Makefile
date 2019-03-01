@@ -18,6 +18,7 @@ symlinks:
 	ln -sf	$(PWD)/mail/tools/*		~/bin/
 	ln -sfh	$(PWD)/troff/tmac		~/.tmac
 	ln -sfh	$(PWD)/mutt			~/.mutt
+	ln -sfh	$(PWD)/dunst			~/.config/dunst
 
 rootsymlinks:
 	ln -sf	$(PWD)/x11/xorg.conf		/etc/X11/xorg.conf
