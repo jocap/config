@@ -9,7 +9,7 @@ settings = {
 }
 
 vis.events.subscribe(vis.events.INIT, function()
-	vis:command("set theme acme-dark")
+	vis:command("set theme white")
 	vis:command("set autoindent on")
 	vis:command("set shell /bin/sh")
 	vis:command("map! normal W :w<Enter>")
@@ -31,6 +31,7 @@ end)
 
 vis.events.subscribe(vis.events.WIN_OPEN, function(win)
 	vis:command("set savemethod inplace")
+	vis:command("set relative")
 end)
 
 vis:command_register("eval", function(argv, force, win, selection, range)
