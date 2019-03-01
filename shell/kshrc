@@ -107,6 +107,8 @@ function cd {
 		\builtin cd
 	fi
 
+	ls
+
 	# generate make completion
 	complete_make
 }
