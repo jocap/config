@@ -1,6 +1,5 @@
 {
   mupdf.MuPDF = {
-    NoTitlebar = Yes;
     AlwaysUserIcon = No;
     NoResizebar = Yes;
   };
@@ -10,17 +9,12 @@
   URxvt = {
     AlwaysUserIcon = No;
   };
+  feh.feh = {
+    NoTitlebar = Yes;
+    AlwaysUserIcon = No;
+    NoResizebar = Yes;
+  };
   fff.URxvt = {
-    NoTitlebar = Yes;
-    AlwaysUserIcon = No;
-    NoResizebar = Yes;
-  };
-  Navigator.Firefox = {
-    NoTitlebar = Yes;
-    AlwaysUserIcon = No;
-    NoResizebar = Yes;
-  };
-  htop.URxvt = {
     NoTitlebar = Yes;
     AlwaysUserIcon = No;
     NoResizebar = Yes;
@@ -30,5 +24,23 @@
     AlwaysUserIcon = No;
     NoResizebar = Yes;
     Icon = Shell.png;
+  };
+  htop.URxvt = {
+    NoTitlebar = Yes;
+    AlwaysUserIcon = No;
+    NoResizebar = Yes;
+  };
+  Navigator.Firefox = {
+    NoTitlebar = Yes;
+    AlwaysUserIcon = No;
+    NoResizebar = Yes;
+  };
+  xclock.XClock = {
+    Unfocusable = Yes;
+    SharedAppIcon = No;
+    NoTitlebar = Yes;
+    NoAppIcon = Yes;
+    AlwaysUserIcon = No;
+    NoResizebar = Yes;
   };
 }
