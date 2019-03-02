@@ -14,6 +14,12 @@ vis.events.subscribe(vis.events.INIT, function()
 	vis:command("set shell /bin/sh")
 	vis:command("map! normal W :w<Enter>")
 	vis:command("map! normal E :w<Enter>:!gmake<Enter>")
+	vis:command("map! normal ,l ':set relative<Enter>'")
+	vis:command("map! normal ,L ':set relative off<Enter>'")
+
+	vis:command("map! visual = :|par<Enter>")
+	vis:command("map! visual gq :|par<Enter>")
+	vis:command("map! insert <M-x> <C-c>V:|spar<Enter><C-c>a")
 
 	vis:command("map! normal ¤ $")
 	vis:command("map! operator-pending ¤ $")
