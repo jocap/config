@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -m # launch processes in their own process groups
+
 exit-with-wm() { echo $! >> /tmp/exit-with-wm; }
 
 xrdb -load /home/john/.Xresources

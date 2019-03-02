@@ -1,7 +1,11 @@
 #!/bin/sh
 
-for pid in $(cat /tmp/exit-with-wm); do
-	kill -TERM -$pid # kill all processes within group
+cat /tmp/exit-with-wm |
+while read pid; do
+	ps -o pgid -p $pid | nth 2 # get process group id
+done |
+while read pgid; do
+	kill -TERM -$pgid # kill all processes within group
 done
 
 rm /tmp/exit-with-wm
