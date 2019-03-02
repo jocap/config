@@ -5,6 +5,8 @@ set mailcap_path = ~/.mutt/mailcap
 set sort = date
 color normal default default
 
+source ~/cfg/mutt/aliases
+
 # SMTP
 
 set realname = "John Ankarström"
