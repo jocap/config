@@ -6,7 +6,7 @@
 	[ "$(apm -a)" = 1 ] && printf '*\n' || printf '\n'            # charging
 	printf 'layout: %s\n' $(cat /tmp/keyboard_layout)             # layout
 	printf 'e-mails: %s\n' $(msgs | wc -l | tr -d ' ')            # e-mails
-) | dmenu -nb '#dcdcdc' -nf '#000000' -sb '#808080' "$@" |
+) | dmenu "$@" |
 while read selection; do
 	case "$selection" in
 	time:*) urxvt -e ksh -c 'alm | less -cR' ;;    # view almanack
