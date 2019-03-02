@@ -3,7 +3,7 @@
 # watch battery life and warn at certain levels
 
 warn() { notify-send -u "$1" 'Battery low' ${BATTERY}%; }
-err() { echo "$@" 1 >& 2; exit 1; }
+err() { echo "$@" 1>&2; exit 1; }
 
 while BATTERY=$(apm -l); do
 	ps -cax | grep ' dunst$' 1>&- || err "$0: dunst not running"
