@@ -1,0 +1,8 @@
+#!/bin/sh
+
+tail -0 -f /var/log/apmd |
+sed -u 's/.* status: \(.*\)\..*/\1/' |
+while read line; do
+	notify-send -u low apmd "$line"
+done
+
