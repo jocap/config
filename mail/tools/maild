@@ -10,20 +10,17 @@
 
 fifo=~/cfg/mail/mailfifo
 mbsyncrc=~/cfg/mail/mbsyncrc
+default=mailbox
 usage="usage: $0 account [minutes]"
-passphrase=$RANDOM
 
-err() {
-	echo $@ 1>&2
-	exit 1
-}
+err() { echo $@ 1>&2; exit 1; }
 
 # ----------------------------------------------------------------------
 # Check arguments
 # ----------------------------------------------------------------------
 
-[ $# -lt 1 -o $# -gt 2 -o -z "$1" ] && err $usage
-account=$1
+[ $# -lt 1 ] && account=$default || account=$1
+[ $# -gt 2 -o -z "$account" ] && err $usage
 if [ -z "$2" ]; then
 	minutes=30
 else
