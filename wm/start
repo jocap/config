@@ -3,7 +3,7 @@
 exit-with-wm() { echo $! >> /tmp/exit-with-wm; }
 
 xrdb -load /home/john/.Xresources
-setxkbmap usx
+setlayout usx
 randombg
 
 compton -cG -o 0.25 \
