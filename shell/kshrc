@@ -78,10 +78,10 @@ set -A complete_rcctl_2 -- $(ls /etc/rc.d/)
 # ----------------------------------------------------------------------
 
 function complete_make {
-	[ -e GNUmakefile ] && local Makefile=GNUmakefile
-	[ -e makefile ] && local Makefile=makefile
-	[ -e Makefile ] && local Makefile=Makefile
-	if [ ! -z "$Makefile" ]; then
+	[[ -e GNUmakefile ]] && local Makefile=GNUmakefile
+	[[ -e makefile ]] && local Makefile=makefile
+	[[ -e Makefile ]] && local Makefile=Makefile
+	if [[ ! -z $Makefile ]]; then
 		targets=$(cat $Makefile | egrep "^[[:alnum:][:punct:]]{0,}:[[:space:]]{0,}[[:alnum:][:punct:][:space:]]{0,}$" | sed 's/:.*//')
 		set -A complete_make -- $targets
 		set -A complete_gmake -- $targets
@@ -120,11 +120,11 @@ function cd {
 function lf {
 	tmp=$(mktemp)
 	env lf -last-dir-path="$tmp" "$@"
-	[ -f "$tmp" ] || return 1
+	[[ -f $tmp ]] || return 1
 	dir=$(cat "$tmp")
 	rm -f "$tmp"
-	[ -d "$dir" ] || return 1
-	[ "$dir" != "$(pwd)" ] && cd "$dir"
+	[[ -d $dir ]] || return 1
+	[[ $dir != $(pwd) ]] && cd "$dir"
 }
 
 # ----------------------------------------------------------------------
