@@ -128,22 +128,6 @@ function lf {
 }
 
 # ----------------------------------------------------------------------
-# launch a process and collect pid
-# ----------------------------------------------------------------------
-
-function launch {
-	[ -z "${_LAUNCHED[0]}" -o ! "$_LAUNCHING" = $$ ] && set -A _LAUNCHED
-	_LAUNCHING=$$
-	"$@" & _LAUNCHED[${#_LAUNCHED[@]}]=$!
-}
-
-function unlaunch {
-	for pid in ${_LAUNCHED[@]}; do
-		kill $pid
-	done
-}
-
-# ----------------------------------------------------------------------
 # output saving (experimental)
 # ----------------------------------------------------------------------
 
