@@ -1,0 +1,18 @@
+#!/bin/sh
+
+exit-with-wm() { echo $! >> /tmp/exit-with-wm; }
+
+xrdb -load /home/john/.Xresources
+setxkbmap usx
+randombg
+
+compton -cG -o 0.25 \
+	--shadow-exclude 'WM_CLASS@:s !' \
+	--shadow-exclude 'focused = 0' \
+	--paint-on-overlay \
+	--vsync opengl & exit-with-wm
+
+dunst & exit-with-wm
+
+batterywatch & exit-with-wm
+chargewatch & exit-with-wm

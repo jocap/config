@@ -1,0 +1,7 @@
+#!/bin/sh
+
+for pid in $(cat /tmp/exit-with-wm); do
+	kill -TERM -$pid # kill all processes within group
+done
+
+rm /tmp/exit-with-wm
