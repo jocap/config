@@ -37,11 +37,15 @@ while read setting value; do
 	case "$setting" in
 	PassCmd)
 		PassCmd=$(printf '%s\n' "$value" | sed -e 's/^"//' -e 's/^+//' -e 's/"$//') # remove quotes and potential plus
-		password=$(eval $PassCmd | sed -e 's/"/\"/g') # escape
+
+		password=$( (eval $PassCmd) | sed -e 's/"/\"/g') # escape
+		[ -z "$password" ] && err 'password command failed'
+
 		config=${config}$(printf '\nPass "%s"\n' "$password")
 		;;
 	*)
 		config=${config}$(printf '\n%s %s\n' "$setting" "$value")
+		;;
 	esac
 done < "$mbsyncrc"
 
