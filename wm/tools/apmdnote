@@ -1,0 +1,40 @@
+#!/bin/ksh
+
+watch /tmp/apmd/{connected,life,suspended} |
+{
+	# previous values
+	connected_before=
+	life_before=
+
+	while read f; do
+		status=$(< $f)
+		case $f in
+			*/connected)
+				[[ $status = $connected_before ]] && continue
+				connected_before=$status
+				case $status in
+					1) notify-send -u low apmd "connected ($(apm -l)%)" ;;
+					0) notify-send -u low apmd "disconnected ($(apm -l)%)" ;;
+				esac
+				;;
+
+			*/life)
+				[[ $status = $life_before ]] && continue
+				life_before=$status
+
+				case $(apm -a):$status in
+					1:95) notify-send -u low "battery high" $status% ;;
+					0:10) notify-send -u normal "battery low" $status% ;;
+					0:5) notify-send -u critical "battery low" $status% ;;
+				esac
+				;;
+
+			*/suspended)
+				case $status in
+					1) notify-send -u low apmd "suspending" ;;
+					0) notify-send -u low apmd "resumed" ;;
+				esac
+				;;
+		esac
+	done
+}

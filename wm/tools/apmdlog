@@ -1,0 +1,38 @@
+#!/usr/bin/env perl
+# vi: ft=perl
+
+use v5.24;
+use warnings;
+use strict;
+
+`mkdir -p /tmp/apmd`;
+
+open(my $connected, ">", "/tmp/apmd/connected") or die "open: $!";
+open(my $life, ">", "/tmp/apmd/life") or die "open: $!";
+open(my $suspended, ">", "/tmp/apmd/suspended") or die "open: $!";
+
+my @files = ($connected, $life, $suspended);
+map { $_-> autoflush(1) } @files;
+
+open(my $pipe, "-|", "tail -0 -f /var/log/apmd") or die "open: $!";
+
+while (<$pipe>) {
+	s/.* apmd: //;
+
+	map { seek($_, 0, 0) } @files; # write at start of file
+
+	# suspension status
+	if (/^system/) {
+		if (/resumed/) { print $suspended 0; }
+		else { print $suspended 1; }
+	}
+	# charging status and battery life
+	elsif (/^battery status: .*?\. external power status: (.*?)\. estimated battery life (\d+)%/) {
+		print $connected "0\n" if $1 eq "not connected";
+		print $connected "1\n" if $1 eq "connected";
+		print $life "$2\n";
+	}
+}
+
+map close, @files;
+close $pipe;

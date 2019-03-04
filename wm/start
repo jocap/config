@@ -16,5 +16,6 @@ compton -cG -o 0.25 \
 
 dunst & exit-with-wm
 
-batterywatch & exit-with-wm
-chargewatch & exit-with-wm
+mkdir -p /tmp/apmd
+
+(apmdlog & apmdnote & apmlog) & exit-with-wm

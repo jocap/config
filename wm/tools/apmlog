@@ -1,0 +1,7 @@
+#!/bin/sh
+
+while true; do
+	apm -a > /tmp/apmd/connected
+	apm -l > /tmp/apmd/life
+	sleep 30
+done
