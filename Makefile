@@ -1,7 +1,7 @@
 # vi: ts=8:sw=8
 
 symlinks:
-	ln -sf	$(PWD)/x11/urxvt			~/.urxvt
+	ln -sfh	$(PWD)/x11/urxvt			~/.urxvt
 	ln -sf	$(PWD)/x11/xinitrc			~/.xinitrc
 	ln -sf	$(PWD)/x11/Xresources			~/.Xresources
 	ln -sf	$(PWD)/wm/tools/*			~/bin/
