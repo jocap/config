@@ -15,7 +15,7 @@ xkb_symbols "se" {
 
 	key <AE05> { [ 5,		percent,	onehalf,	EuroSign ] };
 	key <AE11> { [ plus,		question,	backslash,	questiondown ] };
-	key <AE12> { [ dead_acute,	dead_grave,	plusminus,	notsign ] };
+	key <AE12> { [ dead_acute,	dead_grave,	dead_caron,	notsign ] };
 
 	key <AC10> { [ odiaeresis,	Odiaeresis,	oslash,		Ooblique ] };
 	key <AC11> { [ adiaeresis,	Adiaeresis,	ae,		AE ] };
