@@ -18,6 +18,7 @@ symlinks:
 	ln -sfh	$(PWD)/troff/tmac			~/.tmac
 	ln -sfh	$(PWD)/mutt				~/.mutt
 	ln -sfh	$(PWD)/dunst				~/.config/dunst
+	ln -sf	$(PWD)/xdg/applications/*		~/.local/share/applications/
 	ln -sf	$(PWD)/ssh/*				~/.ssh/
 
 hardlinks:
