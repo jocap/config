@@ -37,7 +37,6 @@ end)
 
 vis.events.subscribe(vis.events.WIN_OPEN, function(win)
 	vis:command("set savemethod inplace")
-	vis:command("set relative")
 end)
 
 vis:command_register("eval", function(argv, force, win, selection, range)

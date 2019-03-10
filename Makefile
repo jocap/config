@@ -6,7 +6,7 @@ symlinks:
 	ln -sf	$(PWD)/x11/Xresources			~/.Xresources
 	ln -sf	$(PWD)/wm/tools/*			~/bin/
 	ln -sf	$(PWD)/fontconfig/fonts.conf		~/.config/fontconfig/fonts.conf
-	ln -sf	$(PWD)/vis				~/.config/vis
+	ln -sfh	$(PWD)/vis				~/.config/vis
 	ln -sf	$(PWD)/shell/kshrc			~/.kshrc
 	ln -sf	$(PWD)/shell/profile			~/.profile
 	ln -sf	$(PWD)/xdg/user-dirs.dirs		~/.config/user-dirs.dirs
