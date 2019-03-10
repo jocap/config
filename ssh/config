@@ -1,0 +1,5 @@
+AddKeysToAgent yes
+
+Host server
+HostName ankarstrom.se
+User john

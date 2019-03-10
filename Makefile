@@ -19,6 +19,7 @@ symlinks:
 	ln -sf	$(PWD)/troff/tmac			~/.tmac
 	ln -sf	$(PWD)/mutt				~/.mutt
 	ln -sf	$(PWD)/dunst				~/.config/dunst
+	ln -sf	$(PWD)/ssh/*				~/.ssh/
 
 hardlinks:
 	ln -f	$(PWD)/wm/windowmaker/defaults/*	~/GNUstep/Defaults/
