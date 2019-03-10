@@ -1,0 +1,10 @@
+#!/bin/sh
+
+fifo=/tmp/volumedisplay
+
+[ -e "$fifo" ] && { echo "$fifo already exists" 1>&2; exit 1; }
+
+mkfifo "$fifo"
+trap 'trap - TERM; rm "$fifo"; kill 0' INT TERM QUIT EXIT
+
+tail -1 -f "$fifo" | xob 1>&-

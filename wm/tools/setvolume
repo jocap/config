@@ -1,3 +1,9 @@
 #!/bin/sh
 
 mixerctl outputs.master=$1 > /dev/null
+
+mixerctl outputs.master |
+scan 'outputs.master=%*[^,],%s' |
+while read volume; do
+	echo "5 k $volume 255 / 100 * p" | dc > /tmp/volumedisplay
+done
