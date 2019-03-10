@@ -5,7 +5,6 @@ symlinks:
 	ln -sf	$(PWD)/x11/xinitrc			~/.xinitrc
 	ln -sf	$(PWD)/x11/Xresources			~/.Xresources
 	ln -sf	$(PWD)/wm/tools/*			~/bin/
-	ln -sf	$(PWD)/wm/windowmaker/defaults		~/GNUstep/Defaults/
 	ln -sf	$(PWD)/fontconfig/fonts.conf		~/.config/fontconfig/fonts.conf
 	ln -sf	$(PWD)/vis				~/.config/vis
 	ln -sf	$(PWD)/shell/kshrc			~/.kshrc
@@ -16,9 +15,9 @@ symlinks:
 	ln -sf	$(PWD)/mail/msmtprc			~/.msmtprc
 	ln -sf	$(PWD)/mail/mime.types			~/.mime.types
 	ln -sf	$(PWD)/mail/tools/*			~/bin/
-	ln -sf	$(PWD)/troff/tmac			~/.tmac
-	ln -sf	$(PWD)/mutt				~/.mutt
-	ln -sf	$(PWD)/dunst				~/.config/dunst
+	ln -sfh	$(PWD)/troff/tmac			~/.tmac
+	ln -sfh	$(PWD)/mutt				~/.mutt
+	ln -sfh	$(PWD)/dunst				~/.config/dunst
 	ln -sf	$(PWD)/ssh/*				~/.ssh/
 
 hardlinks:
