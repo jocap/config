@@ -102,7 +102,7 @@
         AutoAttractIcons = No;
         Lowered = Yes;
       };
-      Name = Dev;
+      Name = "Workspace 2";
     },
     {
       Clip = {

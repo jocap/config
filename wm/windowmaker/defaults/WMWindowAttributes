@@ -1,20 +1,46 @@
 {
+  firefox.Firefox = {
+    Icon = firefox.png;
+  };
   mupdf.MuPDF = {
     AlwaysUserIcon = No;
     NoResizebar = Yes;
   };
-  firefox.Firefox = {
-    Icon = firefox.png;
-  };
-  URxvt = {
+  maild.URxvt = {
+    SkipWindowList = Yes;
+    NoTitlebar = Yes;
+    SkipSwitchPanel = Yes;
     AlwaysUserIcon = No;
+    NoResizebar = Yes;
+    Icon = Pencil.png;
   };
   feh.feh = {
     NoTitlebar = Yes;
     AlwaysUserIcon = No;
     NoResizebar = Yes;
   };
+  URxvt = {
+    AlwaysUserIcon = No;
+  };
   fff.URxvt = {
+    NoTitlebar = Yes;
+    AlwaysUserIcon = No;
+    NoResizebar = Yes;
+  };
+  sxiv.Sxiv = {
+    NoTitlebar = Yes;
+    AlwaysUserIcon = No;
+    NoResizebar = Yes;
+  };
+  Logo.WMDock = {
+    Icon = GNUstep.tiff;
+  };
+  Navigator.Firefox = {
+    NoTitlebar = Yes;
+    AlwaysUserIcon = No;
+    NoResizebar = Yes;
+  };
+  htop.URxvt = {
     NoTitlebar = Yes;
     AlwaysUserIcon = No;
     NoResizebar = Yes;
@@ -24,16 +50,6 @@
     AlwaysUserIcon = No;
     NoResizebar = Yes;
     Icon = Shell.png;
-  };
-  htop.URxvt = {
-    NoTitlebar = Yes;
-    AlwaysUserIcon = No;
-    NoResizebar = Yes;
-  };
-  Navigator.Firefox = {
-    NoTitlebar = Yes;
-    AlwaysUserIcon = No;
-    NoResizebar = Yes;
   };
   xclock.XClock = {
     Unfocusable = Yes;
