@@ -240,10 +240,10 @@
     # On the US keyboard layout "grave" is normally above TAB and left
     # of "1". Make sure this key actually exists on your keyboard layout,
     # e.g. check output of 'xmodmap -pke'
-    history = mod4+grave
+    history = mod4+ctrl+n
 
     # Context menu.
-    context = ctrl+grave
+    context = mod4+mod1+n
 
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
