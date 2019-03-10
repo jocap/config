@@ -74,17 +74,29 @@ set -A complete_rcctl_1 -- disable enable restart start stop
 set -A complete_rcctl_2 -- $(ls /etc/rc.d/)
 
 # ----------------------------------------------------------------------
+# ssh completion
+# ----------------------------------------------------------------------
+
+if [[ -e ~/.ssh/config ]]; then
+	set -A complete_ssh -- $(awk ' /^Host/ {print $NF}' ~/.ssh/config)
+fi
+
+# ----------------------------------------------------------------------
 # makefile completion
 # ----------------------------------------------------------------------
 
 function complete_make {
-	[[ -e GNUmakefile ]] && local Makefile=GNUmakefile
-	[[ -e makefile ]] && local Makefile=makefile
+	unset complete_gmake
+	unset complete_make
+
 	[[ -e Makefile ]] && local Makefile=Makefile
+	[[ -e makefile ]] && local Makefile=makefile
+	[[ -e GNUmakefile ]] && local Makefile=GNUmakefile
+
 	if [[ ! -z $Makefile ]]; then
 		targets=$(cat $Makefile | egrep "^[[:alnum:][:punct:]]{0,}:[[:space:]]{0,}[[:alnum:][:punct:][:space:]]{0,}$" | sed 's/:.*//')
-		set -A complete_make -- $targets
 		set -A complete_gmake -- $targets
+		[[ $Makefile = GNUmakefile ]] || set -A complete_make -- $targets
 	fi
 }
 complete_make
@@ -109,7 +121,6 @@ function cd {
 
 	[[ $old != $PWD ]] && ls
 
-	# generate make completion
 	complete_make
 }
 
