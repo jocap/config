@@ -1,5 +1,7 @@
 #!/bin/ksh
 
+mkdir -p /tmp/apmd
+
 watch /tmp/apmd/{connected,life,suspended} |
 {
 	# previous values
