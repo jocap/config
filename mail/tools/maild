@@ -71,7 +71,7 @@ sync() {
 	if [ "$msgs" != "$prev_msgs" ]; then
 		new=$(printf '%s\n' "$msgs" | wc -l | tr -d ' ')
 		[ "$new" -gt 1 ] && plural=s || plural=
-		folders=$(printf '%s\n' "$msgs" | awk '{print $1}' | uniq | sep ', ')
+		folders=$(printf '%s\n' "$msgs" | hm | awk '{print $1}' | uniq | sep ', ')
 		notify-send "$new new message$plural" "in $folders"
 	fi
 }
