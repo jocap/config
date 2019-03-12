@@ -1,17 +1,17 @@
 #!/bin/sh
 
 (
-	printf 'time: %s\n' $(date +%H:%M)                            # time
-	printf 'battery: %s%%' $(apm -l)                              # battery
-	[ "$(apm -a)" = 1 ] && printf '*\n' || printf '\n'            # charging
-	printf 'layout: %s\n' $(cat /tmp/keyboard_layout)             # layout
-	printf 'e-mails: %s\n' $(msgs | wc -l | tr -d ' ')            # e-mails
+	printf 'time: %s\n' $(date +%H:%M)                   # time
+	printf 'battery: %s%%' $(apm -l)                     # battery life
+	[ "$(apm -a)" = 1 ] && printf '*\n' || printf '\n'   # charging
+	printf 'layout: %s\n' $(cat /tmp/keyboard_layout)    # layout
+	printf 'e-mails: %s\n' $(unread | wc -l | tr -d ' ') # e-mails
 ) | dmenu "$@" |
 while read selection; do
 	case "$selection" in
-	time:*) urxvt -e ksh -c 'alm | less -cR' ;;    # view almanack
-	battery:*) zzz ;;                             # go to sleep
-	layout:*) setlayout usx ;;                    # reset layout
-	e-mails:*) urxvt -e ksh -c 'msgs; ksh' ;;     # view new e-mails
+	time:*) urxvt -e ksh -c 'alm | less -cR' ;;      # view almanack
+	battery:*) zzz ;;                                # go to sleep
+	layout:*) setlayout usx ;;                       # reset layout
+	e-mails:*) urxvt -e ksh -c 'unread | hm; ksh' ;; # view new e-mails
 	esac
 done
