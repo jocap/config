@@ -56,19 +56,22 @@ done < "$mbsyncrc"
 sync() {
 	printf '(%s)\n' $(date +%H:%M)
 
+	# sync account
 	[ -e "$fifo" ] && err '$fifo already exists'
 	mkfifo "$fifo"
 	mbsync -c "$fifo" "$account" & syncpid=$!
 	printf '%s\n' "$config" > "$fifo"
 	rm "$fifo"
-}
 
-check() {
-	msgs=$(msgs | cat)
+	# wait for sync
+	while ps -o pid -p "$syncpid" 1>&-; do sleep 0.5; done
+
+	# check new messages
+	msgs=$(unread)
 	if [ "$msgs" != "$prev_msgs" ]; then
 		new=$(printf '%s\n' "$msgs" | wc -l | tr -d ' ')
 		[ "$new" -gt 1 ] && plural=s || plural=
-		folders=$(printf '%s\n' "$msgs" | awk '{print $1}' | sep ', ')
+		folders=$(printf '%s\n' "$msgs" | awk '{print $1}' | uniq | sep ', ')
 		notify-send "$new new message$plural" "in $folders"
 	fi
 }
@@ -77,9 +80,16 @@ syncpid=
 msgs=
 prev_msgs=
 
+trap 'sync' HUP
+
+sync
+
+time=$(date +%s)
 while true; do
-	sync
-	while ps -o pid -p "$syncpid" 1>&-; do sleep 0.5; done
-	check
-	sleep $((minutes * 60))
+	now=$(date +%s)
+	if [ "$now" -ge "$((time + minutes * 60))" ]; then
+		time=$now
+		sync
+	fi
+	sleep 1
 done
