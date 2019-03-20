@@ -28,24 +28,23 @@ xkb_symbols "se" {
 	key <AE12> { [ equal,	plus,		U2248,			U2260 ] };
 						// approximately =	// not =
 
+	key <AD11> { [ bracketleft,	braceleft ] };
+	key <AD12> { [ bracketright,	braceright ] };
 
-	key <AC10> { [ odiaeresis,	Odiaeresis,	oslash,		Ooblique ] };
-	key <AC11> { [ adiaeresis,	Adiaeresis,	leftsinglequotemark,	leftdoublequotemark ] };
+	key <AC10> { [ semicolon,	colon,		leftsinglequotemark,	leftdoublequotemark ] };
+	key <AC11> { [ apostrophe,	quotedbl,	rightsinglequotemark,	rightdoublequotemark ] };
 
-	key <AD11> { [ aring,		Aring,		bracketleft,	braceleft ] };
-	key <AD12> { [ backslash,	bar,		bracketright,	braceright ] };
+	key <TLDE> { [ asciitilde,	grave,		section,	paragraph ] };
 
-	key <TLDE> { [ grave,		section,	paragraph,	dead_tilde ] };
+	key <BKSL> { [ backslash,	bar,		rightsinglequotemark,	rightdoublequotemark ] };
 
-	key <BKSL> { [ apostrophe,	quotedbl,	rightsinglequotemark,	rightdoublequotemark ] };
-
-	key <LSGT> { [ asciitilde,	grave,		dead_diaeresis,	dead_circumflex ] };
+	key <LSGT> { [ period,		comma,		dead_diaeresis,	dead_circumflex ] };
 
 	include "kpdl(comma)"
 	
-	key <AB08> { [ comma,		semicolon,	less,		periodcentered ] };
-	key <AB09> { [ period,		colon,		greater,	ellipsis ] };
-	key <AB10> { [ slash,		question,	endash,		U00AD ] };
+	key <AB08> { [ aring,		Aring,		less,		periodcentered ] };
+	key <AB09> { [ adiaeresis,	Adiaeresis,	greater,	ellipsis ] };
+	key <AB10> { [ odiaeresis,	Odiaeresis,	endash,		U00AD ] };
 
 	include "level3x(prsc_switch)"
 };
