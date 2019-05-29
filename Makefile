@@ -20,6 +20,7 @@ symlinks:
 	ln -sfh	$(PWD)/dunst				~/.config/dunst
 	ln -sf	$(PWD)/xdg/applications/*		~/.local/share/applications/
 	ln -sf	$(PWD)/ssh/*				~/.ssh/
+	ln -sfh	$(PWD)/mpv				~/.config/mpv
 
 hardlinks:
 	ln -f	$(PWD)/wm/windowmaker/defaults/*	~/GNUstep/Defaults/
