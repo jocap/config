@@ -9,8 +9,8 @@ paste - - |
 # -> human path [\t] From [\t] Subject:
 awk -F '\t' '{
 	split($1, f, "/");
-	if (f[5] == "plus" || f[5] == "lists") printf("%s/%s", f[5], f[6])
-	else printf("%s", f[5])
+	if (f[5] == "plus" || f[5] == "lists") printf("~/mail/%s/%s", f[5], f[6])
+	else printf("~/mail/%s", f[5])
 	print "\t", $4, "\t", $2
 }' |
 # convert to columns:
