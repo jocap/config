@@ -33,7 +33,7 @@ vis.events.subscribe(vis.events.INIT, function()
 	vis:command("map! visual Ä }")
 
 	vis:command("set expandtab off")
-	vis:command("set tabwidth 4")
+	vis:command("set tabwidth 8")
 end)
 
 vis.events.subscribe(vis.events.WIN_OPEN, function(win)
