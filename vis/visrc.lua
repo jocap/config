@@ -6,6 +6,7 @@ settings = {
 	markdown = {"set tw 4", "set et on"},
 	python = {"set tw 4", "set et on"},
 	ruby = {"set tw 2", "set et on"},
+	haskell = {"set tw 2", "set et on"},
 }
 
 vis.events.subscribe(vis.events.INIT, function()
