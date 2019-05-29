@@ -16,4 +16,4 @@ awk -F '\t' '{
 # convert to columns:
 column -ts '	' |
 # display in less (behaving like more, but truncating long lines)
-less -SXc
+less -FSXc
