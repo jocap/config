@@ -1,7 +1,7 @@
 -- Acme editor color scheme
 local lexers = vis.lexers
 
-lexers.STYLE_DEFAULT = 'fore:black,back:#ffffff'
+lexers.STYLE_DEFAULT = 'fore:black'
 lexers.STYLE_NOTHING = ''
 lexers.STYLE_CLASS = 'fore:black'
 lexers.STYLE_COMMENT = 'fore:#a8a8a8'
