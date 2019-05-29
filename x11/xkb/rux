@@ -69,5 +69,6 @@ xkb_symbols "basic" {
 	key <AB09> { [ Cyrillic_yu,		Cyrillic_YU ] };
 
 	include "kpdl(comma)"
-	include "level3x(prsc_switch)"
+	include "commonx(prsc_switch)"
+	include "commonx(caps)"
 };

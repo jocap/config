@@ -66,5 +66,6 @@ xkb_symbols "intl" {
 
 	key <LSGT> { [ asciitilde,	grave,	backslash,	bar ] };
 
-	include "level3x(prsc_switch)"
+	include "commonx(prsc_switch)"
+	include "commonx(caps)"
 };
