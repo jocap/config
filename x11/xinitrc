@@ -31,4 +31,5 @@ while true; do
 	fi
 done &
 
-exec wmaker
+stumpwm
+~/cfg/wm/exit
