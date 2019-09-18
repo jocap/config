@@ -32,4 +32,4 @@ while true; do
 done &
 
 stumpwm
-~/cfg/wm/exit
+exec ~/cfg/wm/exit

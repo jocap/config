@@ -65,10 +65,12 @@ xkb_symbols "basic" {
 	key <AB05> { [ Cyrillic_i,		Cyrillic_I ] };
 	key <AB06> { [ Cyrillic_te,		Cyrillic_TE ] };
 	key <AB07> { [ Cyrillic_softsign,	Cyrillic_SOFTSIGN ] };
-	key <AB08> { [ Cyrillic_be,		Cyrillic_BE ] };
-	key <AB09> { [ Cyrillic_yu,		Cyrillic_YU ] };
+	key <AB08> { [ Cyrillic_be,		Cyrillic_BE, U27E8 ] };
+						// mathematical left angle bracket
+	key <AB09> { [ Cyrillic_yu,		Cyrillic_YU, U27E9 ] };
+						// mathematical right angle bracket
 
 	include "kpdl(comma)"
 	include "commonx(prsc_switch)"
-	include "commonx(caps)"
+	include "commonx(nocaps)"
 };

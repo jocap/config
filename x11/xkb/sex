@@ -37,5 +37,5 @@ xkb_symbols "se" {
 	key <BKSL> { [ apostrophe,	asterisk ] };
 	
 	include "commonx(prsc_switch)"
-	include "commonx(caps)"
+	include "commonx(nocaps)"
 };

@@ -19,7 +19,7 @@ HISTSIZE=5000
 # \[ ... \] is not conuted
 PS1='\[\e]2;$PWD\a\]' # set title to pwd
 PS1=$PS1'\[\e[37m\]' # gray
-PS1=$PS1'\w' # pwd
+PS1=$PS1'${PWD##*/}' # pwd
 PS1=$PS1'\[\e[0;0m\]' # reset
 PS1=$PS1' $ '
 
@@ -37,11 +37,12 @@ cs=$c/wm/sxhkdrc
 # preferences
 # ----------------------------------------------------------------------
 
-PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11R6/bin:/usr/local/bin:/usr/local/sbin:/usr/games
+PATH=/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11R6/bin:/usr/games
 PATH=$HOME/bin:$PATH
 export PATH
 
-export EDITOR=vise
+export VISUAL=vi
+export EDITOR=$VISUAL
 export FCEDIT=$EDITOR
 export PAGER='less -c'
 export BROWSER=firefox
@@ -51,6 +52,8 @@ export MOZ_ACCELERATED=1 # make firefox render quickly
 export GROFF_TMAC_PATH=$HOME/.tmac
 
 export PARINIT='rTbgqR B=.,?_A_a Q=_s>|'
+
+export CFLAGS='-Wall -Wno-missing-braces -Wextra -Wpedantic -Wno-unused-parameter -Wno-unused-variable'
 
 export FFF_CD_FILE=$HOME/.fff_d
 export FFF_ERROR_ON_SIGINT=1
@@ -66,6 +69,7 @@ alias ls='colorls -G'
 alias tree='colortree -C'
 alias f='fff && cd $(cat $HOME/.fff_d)'
 alias ms='mbsync mailbox'
+alias grep='grep -Hn'
 
 set -o emacs
 

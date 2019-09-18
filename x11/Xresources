@@ -1,4 +1,4 @@
-#include "/home/john/cfg/x11/colors/white"
+#include "/home/john/cfg/x11/colors/gray"
 
 ! URxvt.font: xft:DejaVu Sans Mono:pixelsize=16
 ! URxvt.letterSpace: -1
@@ -7,7 +7,9 @@
 ! URxvt.boldFont: -*-terminu*-bold-r-*--16-*-*-*-*-*-iso8859-1
 ! ^ match also terminusmod for bold
 
-URxvt.font: xft:Ttyp0:pixelsize=14
+! URxvt.font: xft:Ttyp0:pixelsize=14
+URxvt.font: xft:unscii:style=16-full
+URxvt.boldFont:
 
 ! URxvt.font:           -uw-ttyp0-medium-r-normal--16-*-*-*-*-*-iso8859-1
 ! URxvt.boldFont:       -uw-ttyp0-bold-r-normal--16-*-*-*-*-*-iso8859-1
@@ -17,6 +19,7 @@ URxvt.font: xft:Ttyp0:pixelsize=14
 URxvt.internalBorder: 25
 URxvt.scrollBar: false
 URxvt.pointerBlank: true
+URxvt.intensityStyles: true
 URxvt.cutchars: \\ `"'&()*,;<=>?@[]^{|}│
 URxvt.perl-ext-common: default,resize-font
 

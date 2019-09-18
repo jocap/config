@@ -1,0 +1,26 @@
+#!/bin/sh
+
+set -m # launch processes in their own process groups
+
+exit-with-wm() { echo $! >> /tmp/exit-with-wm; }
+
+[ -e /tmp/exit-with-wm ] && ~/cfg/wm/exit
+
+xrdb -load /home/john/.Xresources
+setlayout usx
+# randombg
+
+urxvtd & exit-with-wm
+
+# compton -cG -o 0.25 \
+#	--opacity-rule 50:'name = "maild"' \
+#	--shadow-exclude 'WM_CLASS@:s !' \
+#	--shadow-exclude 'focused = 0' \
+#	--paint-on-overlay \
+#	--vsync opengl & exit-with-wm
+
+# dunst & exit-with-wm
+
+# (apmdlog & apmdnote & apmlog) & exit-with-wm
+
+# volumedisplay & exit-with-wm

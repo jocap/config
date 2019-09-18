@@ -5,17 +5,6 @@ set -m # launch processes in their own process groups
 exit-with-wm() { echo $! >> /tmp/exit-with-wm; }
 
 xrdb -load /home/john/.Xresources
-setlayout usx
-randombg
+setlang usx
 
-compton -cG -o 0.25 \
-	--shadow-exclude 'WM_CLASS@:s !' \
-	--shadow-exclude 'focused = 0' \
-	--paint-on-overlay \
-	--vsync opengl & exit-with-wm
-
-dunst & exit-with-wm
-
-(apmdlog & apmdnote & apmlog) & exit-with-wm
-
-volumedisplay & exit-with-wm
+urxvtd & exit-with-wm
